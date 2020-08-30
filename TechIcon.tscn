@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://TechIcon.gd" type="Script" id=1]
+[ext_resource path="res://tech_icon.tres" type="Material" id=2]
+[ext_resource path="res://icons/black.bmp" type="Texture" id=3]
+[ext_resource path="res://michroma.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Curve" id=1]
+max_value = 321.78
+_data = [ Vector2( 0, 0.455682 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+trail_size_modifier = SubResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 38.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+color = Color( 0.0745098, 0.901961, 0.968627, 0.721569 )
+hue_variation = 0.09
+hue_variation_random = 0.47
+
+[node name="TechIcon" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 76, 76 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+material = ExtResource( 2 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="progress_particles" type="Particles2D" parent="."]
+position = Vector2( 38, 38 )
+amount = 20
+process_material = SubResource( 3 )
+
+[node name="counter" type="Label" parent="."]
+margin_right = 76.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 4 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float grayout = 0.0;
+
+void fragment(){
+  vec4 col = texture(TEXTURE, UV);
+  vec4 gray = vec4((col.r + col.g + col.b)/10.0);
+  gray.a = col.a;
+  COLOR = mix(col, gray, grayout);
+}"
+custom_defines = ""
+
+[resource]
+shader = SubResource( 1 )
+shader_param/grayout = 0.0

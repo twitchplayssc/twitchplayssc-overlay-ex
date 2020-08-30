@@ -1,0 +1,459 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://icons/terran/structures/btn-building-terran-starport.dds" type="Texture" id=1]
+[ext_resource path="res://icons/terran/structures/btn-building-terran-factory.dds" type="Texture" id=2]
+[ext_resource path="res://icons/terran/structures/btn-building-terran-barracks.dds" type="Texture" id=3]
+[ext_resource path="res://icons/terran/structures/btn-building-terran-fusioncore.dds" type="Texture" id=4]
+[ext_resource path="res://icons/terran/structures/btn-building-terran-armory.dds" type="Texture" id=5]
+[ext_resource path="res://icons/terran/structures/btn-building-terran-ghostacademy.dds" type="Texture" id=6]
+[ext_resource path="res://icons/terran/structures/btn-building-terran-engineeringbay.dds" type="Texture" id=7]
+[ext_resource path="res://overlay toolbox alt long.png" type="Texture" id=8]
+[ext_resource path="res://Overlay.gd" type="Script" id=9]
+[ext_resource path="res://TechIcon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryarmorlevel0.dds" type="Texture" id=11]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-buildingarmor.dds" type="Texture" id=12]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-hisecautotracking.dds" type="Texture" id=13]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryweaponslevel0.dds" type="Texture" id=14]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleweaponslevel0.dds" type="Texture" id=15]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleplatinglevel0.dds" type="Texture" id=16]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-shipweaponslevel0.dds" type="Texture" id=17]
+[ext_resource path="res://icons/terran/research/btn-ability-terran-punishergrenade-color.dds" type="Texture" id=18]
+[ext_resource path="res://icons/terran/research/btn-ability-terran-stimpack-color.dds" type="Texture" id=19]
+[ext_resource path="res://icons/terran/research/btn-techupgrade-terran-combatshield-color.dds" type="Texture" id=20]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-researchdrillingclaws.dds" type="Texture" id=21]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-magfieldaccelerator.dds" type="Texture" id=22]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-infernalpreigniter.dds" type="Texture" id=23]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-transformationservos.dds" type="Texture" id=24]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-corvidreactor.dds" type="Texture" id=25]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-hyperflightrotors.dds" type="Texture" id=26]
+[ext_resource path="res://icons/terran/research/btn-ability-terran-cloak-color.dds" type="Texture" id=27]
+[ext_resource path="res://icons/terran/research/btn-ability-terran-electricfield.dds" type="Texture" id=28]
+[ext_resource path="res://icons/terran/research/btn-ability-terran-yamatogun-color.dds" type="Texture" id=29]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-highcapacityfueltanks.dds" type="Texture" id=30]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-advanceballistics.dds" type="Texture" id=31]
+[ext_resource path="res://icons/btn-ability-terran-armnuke.dds" type="Texture" id=32]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryarmorlevel3.dds" type="Texture" id=33]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryarmorlevel2.dds" type="Texture" id=34]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleplatinglevel1.dds" type="Texture" id=35]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-shipweaponslevel2.dds" type="Texture" id=36]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryweaponslevel3.dds" type="Texture" id=37]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleweaponslevel1.dds" type="Texture" id=38]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleweaponslevel2.dds" type="Texture" id=39]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryweaponslevel1.dds" type="Texture" id=40]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleweaponslevel3.dds" type="Texture" id=41]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryweaponslevel2.dds" type="Texture" id=42]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-shipweaponslevel1.dds" type="Texture" id=43]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-shipweaponslevel3.dds" type="Texture" id=44]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryarmorlevel1.dds" type="Texture" id=45]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleplatinglevel2.dds" type="Texture" id=46]
+[ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleplatinglevel3.dds" type="Texture" id=47]
+[ext_resource path="res://michroma.tres" type="DynamicFont" id=48]
+[ext_resource path="res://GGVote.gd" type="Script" id=49]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.756863, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Overlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -412.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Cover" type="ColorRect" parent="."]
+margin_top = 663.0
+margin_right = 1542.0
+margin_bottom = 1082.0
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TechPanel" type="Control" parent="."]
+margin_left = 1547.0
+margin_top = 718.0
+margin_right = 1912.0
+margin_bottom = 1019.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="TechPanel"]
+anchor_right = 1.25
+anchor_bottom = 1.25
+margin_top = 4.0
+margin_right = 102.0
+margin_bottom = 72.75
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.69, 0.69 )
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 7
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="engibay" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 76.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 7 )
+
+[node name="armory" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_right = 152.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 5 )
+
+[node name="barracks" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_right = 228.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 3 )
+
+[node name="factory" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_right = 304.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 2 )
+
+[node name="starport" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_right = 380.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 1 )
+
+[node name="fusion" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_right = 456.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 4 )
+
+[node name="ghost" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_right = 532.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 6 )
+
+[node name="inf_weapons" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 76.0
+margin_right = 76.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 14 )
+icon_texture_l1 = ExtResource( 40 )
+icon_texture_l2 = ExtResource( 42 )
+icon_texture_l3 = ExtResource( 37 )
+
+[node name="veh_weapons" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 76.0
+margin_right = 152.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 15 )
+icon_texture_l1 = ExtResource( 38 )
+icon_texture_l2 = ExtResource( 39 )
+icon_texture_l3 = ExtResource( 41 )
+
+[node name="combat_shield" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 76.0
+margin_right = 228.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 20 )
+
+[node name="pre-igniter" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 76.0
+margin_right = 304.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 23 )
+
+[node name="corvid" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 76.0
+margin_right = 380.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 25 )
+
+[node name="yamato" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 76.0
+margin_right = 456.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 29 )
+
+[node name="shockwaves" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 76.0
+margin_right = 532.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 28 )
+
+[node name="inf_armor" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 152.0
+margin_right = 76.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 11 )
+icon_texture_l1 = ExtResource( 45 )
+icon_texture_l2 = ExtResource( 34 )
+icon_texture_l3 = ExtResource( 33 )
+
+[node name="ship_weapons" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 152.0
+margin_right = 152.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 17 )
+icon_texture_l1 = ExtResource( 43 )
+icon_texture_l2 = ExtResource( 36 )
+icon_texture_l3 = ExtResource( 44 )
+
+[node name="stimpack" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 152.0
+margin_right = 228.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 19 )
+
+[node name="magfield" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 152.0
+margin_right = 304.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 22 )
+
+[node name="rotors" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 152.0
+margin_right = 380.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 26 )
+
+[node name="ballistics" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 152.0
+margin_right = 456.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 31 )
+
+[node name="ghost_cloak" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 152.0
+margin_right = 532.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 27 )
+
+[node name="neosteel" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 228.0
+margin_right = 76.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 12 )
+
+[node name="plating" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 228.0
+margin_right = 152.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 16 )
+icon_texture_l1 = ExtResource( 35 )
+icon_texture_l2 = ExtResource( 46 )
+icon_texture_l3 = ExtResource( 47 )
+
+[node name="concussive" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 228.0
+margin_right = 228.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 18 )
+
+[node name="drilling" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 228.0
+margin_right = 304.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 21 )
+
+[node name="banshee_cloak" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 228.0
+margin_right = 380.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 27 )
+
+[node name="reignition" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 228.0
+margin_right = 456.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 30 )
+
+[node name="nuke" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 228.0
+margin_right = 532.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 32 )
+
+[node name="hisec" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 304.0
+margin_right = 76.0
+margin_bottom = 380.0
+icon_texture = ExtResource( 13 )
+
+[node name="placeholder-1" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 304.0
+margin_right = 152.0
+margin_bottom = 380.0
+
+[node name="placeholder-2" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 304.0
+margin_right = 228.0
+margin_bottom = 380.0
+
+[node name="servos" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 304.0
+margin_right = 304.0
+margin_bottom = 380.0
+icon_texture = ExtResource( 24 )
+
+[node name="placeholder-3" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 304.0
+margin_right = 380.0
+margin_bottom = 380.0
+
+[node name="placeholder-4" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 304.0
+margin_right = 456.0
+margin_bottom = 380.0
+
+[node name="placeholder-5" parent="TechPanel/GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 304.0
+margin_right = 532.0
+margin_bottom = 380.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="GGVote" type="Control" parent="."]
+margin_left = 698.0
+margin_top = 726.0
+margin_right = 957.0
+margin_bottom = 865.0
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GGVote"]
+margin_left = -117.753
+margin_top = 71.5317
+margin_right = 626.247
+margin_bottom = 149.532
+
+[node name="ProgressBar" type="ProgressBar" parent="GGVote"]
+margin_left = -112.342
+margin_top = 115.361
+margin_right = 620.658
+margin_bottom = 149.361
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+
+[node name="Label" type="Label" parent="GGVote"]
+margin_left = 49.0
+margin_top = 69.9439
+margin_right = 444.0
+margin_bottom = 112.944
+custom_fonts/font = ExtResource( 48 )
+text = "GG Vote"
+align = 1
+valign = 1
