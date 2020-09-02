@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://campaign scenes/mission select/mission_panel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://campaign scenes/mission select/MissionSelect.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Michroma.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 27
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1 )
+
+[node name="MissionSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 23.0
+margin_top = 803.0
+margin_right = 1892.0
+margin_bottom = 1062.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shop" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 53.0
+margin_right = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shop_option1" parent="Panel/Shop" instance=ExtResource( 1 )]
+margin_right = 1861.0
+
+[node name="shop_option2" parent="Panel/Shop" instance=ExtResource( 1 )]
+margin_top = 34.0
+margin_right = 1861.0
+margin_bottom = 64.0
+
+[node name="shop_option3" parent="Panel/Shop" instance=ExtResource( 1 )]
+margin_top = 68.0
+margin_right = 1861.0
+margin_bottom = 98.0
+
+[node name="shop_option4" parent="Panel/Shop" instance=ExtResource( 1 )]
+margin_top = 102.0
+margin_right = 1861.0
+margin_bottom = 132.0
+
+[node name="shop_option5" parent="Panel/Shop" instance=ExtResource( 1 )]
+margin_top = 136.0
+margin_right = 1861.0
+margin_bottom = 166.0
+
+[node name="shop_option6" parent="Panel/Shop" instance=ExtResource( 1 )]
+margin_top = 170.0
+margin_right = 1861.0
+margin_bottom = 200.0
+
+[node name="ShopName" type="Label" parent="Panel"]
+margin_left = 9.54594
+margin_top = 3.88907
+margin_right = 320.546
+margin_bottom = 43.8891
+custom_fonts/font = SubResource( 2 )
+text = "Available Missions"
+__meta__ = {
+"_edit_use_anchors_": false
+}

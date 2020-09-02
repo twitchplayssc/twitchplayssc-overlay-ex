@@ -7,9 +7,11 @@ func incoming_connection(_id, _proto):
 	client_id = _id
 	for node in $TechPanel/GridContainer.get_children():
 		node.gray_out()
-	$GGVote.hide()	
+	disable_overlay()
+	show()
 
-func disconnection(_id):
+func disconnection(_id, _wtf):
+	$NoClientWarning.show()	
 	for node in $TechPanel/GridContainer.get_children():
 		node.highlight()
 		node.in_progress()
@@ -23,10 +25,29 @@ func incoming_message(id):
 		if json["mode"]=="compact":
 			if json.has("race") and json["race"]=="terran":
 				enable_overlay()
+			if json.has("race") and json["race"]=="protoss":
+				disable_overlay()
 		else:
-			disable_overlay()
+			show()			
+			$TechPanel.hide()
+			$GGVote.hide()
+			$NoClientWarning.hide()
+			
 	if json.has("ggvote"):
 		$GGVote.set_value(int(json["ggvote"]))
+	
+	if json.has("armory_shop"):
+		$ArmoryShop.update_state(json["armory_shop"])
+		
+	if json.has("zerg_shop"):
+		$"LabShop Zerg".update_state(json["zerg_shop"])
+		
+	if json.has("protoss_shop"):
+		$"LabShop Protoss".update_state(json["protoss_shop"])
+
+	if json.has("mission_select"):
+		$MissionSelect.update_state(json["mission_select"])
+	
 	if json.has("upgrades"):
 		var upgrades = json["upgrades"]		
 		for node in $TechPanel/GridContainer.get_children():
@@ -61,10 +82,18 @@ func _process(_delta):
 	server.poll()
 
 func enable_overlay():
+	$TechPanel.show()	
 	for node in $TechPanel/GridContainer.get_children():
 		node.gray_out()
+	$MissionSelect.hide()	
 	show()
 	
 func disable_overlay():
+	$TechPanel.hide()		
 	$GGVote.hide()
+	$ArmoryShop.hide()
+	$"LabShop Protoss".hide()
+	$"LabShop Zerg".hide()
+	$NoClientWarning.hide()
+	$MissionSelect.hide()
 	hide()
