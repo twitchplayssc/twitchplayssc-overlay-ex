@@ -56,6 +56,9 @@ margin_right = 184.41
 margin_bottom = 29.315
 custom_fonts/font = SubResource( 4 )
 text = "Shrike Turret"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Command" type="Label" parent="."]
 margin_left = 393.5

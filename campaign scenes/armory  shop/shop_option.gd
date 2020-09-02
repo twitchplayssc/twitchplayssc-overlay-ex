@@ -12,3 +12,4 @@ func update_state(json):
 	$Command.text = json["command"]
 	$votes.value = int(json["votes"])
 	$Price.text = json["price"]	
+	$Description/Label.text = json["description"]

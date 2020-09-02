@@ -3,6 +3,9 @@ extends Control
 var server = WebSocketServer.new()
 var client_id = 0
 
+const TechPanel_Terran = preload("res://tech panel/TechPanel_Terran.tscn")
+const TechPanel_WoL = preload("res://tech panel/TechPanel_WoL.tscn")
+
 func incoming_connection(_id, _proto):
 	client_id = _id
 	for node in $TechPanel/GridContainer.get_children():
@@ -24,6 +27,14 @@ func incoming_message(id):
 	if json.has("mode"):
 		if json["mode"]=="compact":
 			if json.has("race") and json["race"]=="terran":
+				remove_child($TechPanel)
+				add_child(TechPanel_Terran.instance())
+				move_child($TechPanel,0)				
+				enable_overlay()
+			if json.has("race") and json["race"]=="terran_wol":
+				remove_child($TechPanel)
+				add_child(TechPanel_WoL.instance())
+				move_child($TechPanel,0)
 				enable_overlay()
 			if json.has("race") and json["race"]=="protoss":
 				disable_overlay()
@@ -77,6 +88,8 @@ func _ready():
 	server.connect("client_disconnected",self,"disconnection")	
 	server.connect("data_received",self,"incoming_message")
 	var _err = server.listen(14228)
+	get_tree().get_root().set_transparent_background(true)
+	OS.window_per_pixel_transparency_enabled = true
 
 func _process(_delta):
 	server.poll()
