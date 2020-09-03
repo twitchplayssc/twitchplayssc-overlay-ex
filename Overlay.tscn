@@ -104,3 +104,4 @@ __meta__ = {
 }
 
 [node name="MissionSelect" parent="." instance=ExtResource( 52 )]
+visible = false

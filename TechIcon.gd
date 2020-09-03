@@ -8,8 +8,8 @@ export (Texture) var icon_texture_l3
 func _ready():
 	$Icon.texture = icon_texture
 	$Icon.set_material($Icon.get_material().duplicate(true))
-	$counter.set("custom_fonts/font", $counter.get("custom_fonts/font").duplicate(true))
-	set_amount(0)
+	#$counter.set("custom_fonts/font", $counter.get("custom_fonts/font").duplicate(true))
+	set_amount(randi()%200)
 	#gray_out()
 
 func gray_out():
@@ -27,14 +27,13 @@ func in_progress():
 	
 func set_amount(num):
 	if num<=1:
-		$counter.hide()
+		$counter_r.hide()
 	else:
-		$counter.show()
+		$counter_r.show()
+		var txt = "[center]" + String(num) + "[/center]"
 		if num<100:
-			$counter.get("custom_fonts/font").set_size(36)
-		else:
-			$counter.get("custom_fonts/font").set_size(24)			
-		$counter.text = String(num)
+			txt = "[b]"+txt+"[/b]"
+		$counter_r.bbcode_text = txt
 
 func set_level(num):
 	match num:
