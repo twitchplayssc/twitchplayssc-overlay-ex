@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="VideoStreamWebm" id=1]
+file = "res://cutscenes/R01_IntroV8.webm"
+
+[node name="CutscenePlayer" type="VideoPlayer"]
+margin_right = 1718.0
+margin_bottom = 980.0
+stream = SubResource( 1 )
+autoplay = true
+buffering_msec = 510

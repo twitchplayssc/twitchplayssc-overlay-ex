@@ -3,6 +3,7 @@ extends Control
 var server = WebSocketServer.new()
 var client_id = 0
 
+const TechPanel_Protoss = preload("res://tech panel/TechPanel_Protoss.tscn")
 const TechPanel_Terran = preload("res://tech panel/TechPanel_Terran.tscn")
 const TechPanel_WoL = preload("res://tech panel/TechPanel_WoL.tscn")
 
@@ -37,7 +38,10 @@ func incoming_message(id):
 				move_child($TechPanel,0)
 				enable_overlay()
 			if json.has("race") and json["race"]=="protoss":
-				disable_overlay()
+				remove_child($TechPanel)
+				add_child(TechPanel_Protoss.instance())
+				move_child($TechPanel,0)				
+				enable_overlay()
 		else:
 			show()			
 			$TechPanel.hide()
@@ -110,3 +114,7 @@ func disable_overlay():
 	$NoClientWarning.hide()
 	$MissionSelect.hide()
 	hide()
+
+
+func _on_cutscene_finished():
+	$CutscenePlayer.hide()

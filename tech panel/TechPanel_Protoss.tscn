@@ -1,0 +1,349 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://overlay toolbox alt.png" type="Texture" id=1]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-templararchives.dds" type="Texture" id=2]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-forge.dds" type="Texture" id=3]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-twilightcouncil.dds" type="Texture" id=4]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-roboticssupportbay.dds" type="Texture" id=5]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-cyberneticscore.dds" type="Texture" id=6]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-fleetbeacon.dds" type="Texture" id=7]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-darkshrine.dds" type="Texture" id=8]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airweaponslevel0.dds" type="Texture" id=9]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundweaponslevel0.dds" type="Texture" id=10]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundweaponslevel2.dds" type="Texture" id=11]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundweaponslevel1.dds" type="Texture" id=12]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundweaponslevel3.dds" type="Texture" id=13]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airweaponslevel3.dds" type="Texture" id=14]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airweaponslevel1.dds" type="Texture" id=15]
+[ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-graviticbooster.dds" type="Texture" id=16]
+[ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-graviticdrive.dds" type="Texture" id=17]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airweaponslevel2.dds" type="Texture" id=18]
+[ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-fluxvanes.dds" type="Texture" id=19]
+[ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-extendedthermallance.dds" type="Texture" id=20]
+[ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-phoenixrange.dds" type="Texture" id=21]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-gateway.dds" type="Texture" id=22]
+[ext_resource path="res://icons/protoss/research/btn-ability-protoss-disruptionblast.dds" type="Texture" id=23]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-stargate.dds" type="Texture" id=24]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-roboticsfacility.dds" type="Texture" id=25]
+[ext_resource path="res://icons/protoss/research/btn-ability-protoss-shadowdash.dds" type="Texture" id=26]
+[ext_resource path="res://icons/protoss/research/btn-ability-protoss-psistorm-color.dds" type="Texture" id=27]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airarmorlevel1.dds" type="Texture" id=28]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundarmorlevel2.dds" type="Texture" id=29]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airarmorlevel2.dds" type="Texture" id=30]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundarmorlevel0.dds" type="Texture" id=31]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundarmorlevel1.dds" type="Texture" id=32]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airarmorlevel0.dds" type="Texture" id=33]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-groundarmorlevel3.dds" type="Texture" id=34]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel1.dds" type="Texture" id=35]
+[ext_resource path="res://icons/protoss/structures/btn-building-protoss-warpgate.dds" type="Texture" id=36]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-airarmorlevel3.dds" type="Texture" id=37]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel0.dds" type="Texture" id=38]
+[ext_resource path="res://icons/protoss/research/btn-ability-protoss-blink-color.dds" type="Texture" id=39]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel3.dds" type="Texture" id=40]
+[ext_resource path="res://icons/terran/research/btn-techupgrade-terran-combatshield-color.dds" type="Texture" id=41]
+[ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel2.dds" type="Texture" id=42]
+[ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-resonatingglaives.dds" type="Texture" id=43]
+[ext_resource path="res://TechIcon.tscn" type="PackedScene" id=46]
+
+[node name="TechPanel" type="Control"]
+margin_left = 1547.0
+margin_top = 718.0
+margin_right = 1912.0
+margin_bottom = 1019.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Control" parent="."]
+margin_left = -1.0
+margin_top = -336.0
+margin_right = 376.0
+margin_bottom = 366.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Background"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1920.0
+margin_top = -411.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.25
+anchor_bottom = 1.25
+margin_top = 85.0
+margin_right = 101.75
+margin_bottom = 36.75
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.69, 0.69 )
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="forge" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 76.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 3 )
+
+[node name="core" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_right = 152.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 6 )
+
+[node name="twilight" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_right = 228.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 4 )
+
+[node name="robobay" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_right = 304.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 5 )
+
+[node name="beacon" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_right = 380.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 7 )
+
+[node name="archives" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_right = 456.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 2 )
+
+[node name="shrine" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_right = 532.0
+margin_bottom = 76.0
+icon_texture = ExtResource( 8 )
+
+[node name="weapons-ground" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 76.0
+margin_right = 76.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 10 )
+icon_texture_l1 = ExtResource( 12 )
+icon_texture_l2 = ExtResource( 11 )
+icon_texture_l3 = ExtResource( 13 )
+
+[node name="weapons-air" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 76.0
+margin_right = 152.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 9 )
+icon_texture_l1 = ExtResource( 15 )
+icon_texture_l2 = ExtResource( 18 )
+icon_texture_l3 = ExtResource( 14 )
+
+[node name="charge" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 76.0
+margin_right = 228.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 41 )
+
+[node name="prism" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 76.0
+margin_right = 304.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 16 )
+
+[node name="phoenix" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 76.0
+margin_right = 380.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 21 )
+
+[node name="storm" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 76.0
+margin_right = 456.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 27 )
+
+[node name="dt" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 76.0
+margin_right = 532.0
+margin_bottom = 152.0
+icon_texture = ExtResource( 26 )
+
+[node name="armor-ground" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 152.0
+margin_right = 76.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 31 )
+icon_texture_l1 = ExtResource( 32 )
+icon_texture_l2 = ExtResource( 29 )
+icon_texture_l3 = ExtResource( 34 )
+
+[node name="armor-air" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 152.0
+margin_right = 152.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 33 )
+icon_texture_l1 = ExtResource( 28 )
+icon_texture_l2 = ExtResource( 30 )
+icon_texture_l3 = ExtResource( 37 )
+
+[node name="blink" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 152.0
+margin_right = 228.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 39 )
+
+[node name="obs" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 152.0
+margin_right = 304.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 17 )
+
+[node name="voidray" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 152.0
+margin_right = 380.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 19 )
+
+[node name="placeholder1" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 152.0
+margin_right = 456.0
+margin_bottom = 228.0
+
+[node name="gate" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 152.0
+margin_right = 532.0
+margin_bottom = 228.0
+icon_texture = ExtResource( 22 )
+
+[node name="shields" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 228.0
+margin_right = 76.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 38 )
+icon_texture_l1 = ExtResource( 35 )
+icon_texture_l2 = ExtResource( 42 )
+icon_texture_l3 = ExtResource( 40 )
+
+[node name="warpgate" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 228.0
+margin_right = 152.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 36 )
+
+[node name="adept" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 228.0
+margin_right = 228.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 43 )
+
+[node name="colossus" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 228.0
+margin_top = 228.0
+margin_right = 304.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 20 )
+
+[node name="tempest" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 228.0
+margin_right = 380.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 23 )
+
+[node name="robo" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 228.0
+margin_right = 456.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 25 )
+
+[node name="stargate" parent="GridContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = 228.0
+margin_right = 532.0
+margin_bottom = 304.0
+icon_texture = ExtResource( 24 )
