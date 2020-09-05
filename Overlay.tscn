@@ -1,10 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://tech panel/TechPanel_Terran.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CutscenePlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CutscenePlayer.gd" type="Script" id=3]
+[ext_resource path="res://sample.bmp" type="Texture" id=4]
+[ext_resource path="res://Label.gd" type="Script" id=5]
+[ext_resource path="res://Michroma.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://LabeledStat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://PlayerLine.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Overlay.gd" type="Script" id=9]
-[ext_resource path="res://michroma.tres" type="DynamicFont" id=48]
+[ext_resource path="res://GameStats.gd" type="Script" id=10]
+[ext_resource path="res://Column_UnitsKilled.gd" type="Script" id=11]
+[ext_resource path="res://Column_XP.gd" type="Script" id=12]
+[ext_resource path="res://fonts/michroma.tres" type="DynamicFont" id=48]
 [ext_resource path="res://GGVote.gd" type="Script" id=49]
 [ext_resource path="res://campaign scenes/armory  shop/ArmoryShop.tscn" type="PackedScene" id=50]
 [ext_resource path="res://campaign scenes/lab shop/LabShop.tscn" type="PackedScene" id=51]
@@ -26,6 +34,34 @@ outline_color = Color( 0.839216, 0.0666667, 0.0666667, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Michroma.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 19
+outline_size = 1
+outline_color = Color( 0.792157, 0.941176, 1, 0.729412 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 1
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Michroma.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 18
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.184314 )
+use_filter = true
+font_data = ExtResource( 6 )
 
 [node name="Overlay" type="Control"]
 anchor_right = 1.0
@@ -84,8 +120,10 @@ autoplay = false
 script = ExtResource( 3 )
 
 [node name="ArmoryShop" parent="." instance=ExtResource( 50 )]
+visible = false
 
 [node name="LabShop Zerg" parent="." instance=ExtResource( 51 )]
+visible = false
 margin_left = 1191.41
 margin_top = -22.1439
 margin_right = 1191.41
@@ -94,6 +132,7 @@ shop_name = "Zerg Research"
 panel_color = Color( 0.858824, 0.482353, 0, 0.305882 )
 
 [node name="LabShop Protoss" parent="." instance=ExtResource( 51 )]
+visible = false
 margin_left = 1191.41
 margin_top = 106.368
 margin_right = 1191.41
@@ -113,4 +152,218 @@ __meta__ = {
 }
 
 [node name="MissionSelect" parent="." instance=ExtResource( 52 )]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 4 )
+
+[node name="GameStats" type="Control" parent="."]
+margin_right = 1924.0
+margin_bottom = 1076.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreepingLine" type="Control" parent="GameStats"]
+margin_left = 373.0
+margin_top = 901.0
+margin_right = 1021.0
+margin_bottom = 932.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GameStats/CreepingLine"]
+margin_right = 569.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 6 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+text = "This is supposed to be a creeping line that scrolls itself to the left and then wraps around"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCount" parent="GameStats" instance=ExtResource( 7 )]
+value = "99"
+label = "players"
+
+[node name="APMCount" parent="GameStats" instance=ExtResource( 7 )]
+margin_left = 503.71
+margin_top = 930.592
+margin_right = 624.71
+margin_bottom = 991.592
+value = "99"
+label = "apm"
+
+[node name="WLRatio" parent="GameStats" instance=ExtResource( 7 )]
+margin_left = 629.0
+margin_right = 804.0
+value = "5030/5460"
+label = "won/lost"
+
+[node name="Level" parent="GameStats" instance=ExtResource( 7 )]
+margin_left = 819.0
+margin_top = 932.0
+margin_right = 1030.0
+margin_bottom = 993.0
+value = "Easy"
+label = "ai level"
+
+[node name="RecentSub" type="Label" parent="GameStats"]
+margin_left = 380.166
+margin_top = 989.947
+margin_right = 528.166
+margin_bottom = 1019.95
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.419608, 0.768627, 0.964706, 1 )
+text = "recent sub"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecentDono" type="Label" parent="GameStats"]
+margin_left = 379.779
+margin_top = 1020.94
+margin_right = 601.779
+margin_bottom = 1050.94
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.419608, 0.768627, 0.964706, 1 )
+text = "recent donations"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayersTable" type="Control" parent="GameStats"]
+margin_left = 1029.0
+margin_top = 887.0
+margin_right = 1506.0
+margin_bottom = 1065.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Borders" type="Control" parent="GameStats/PlayersTable"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="GameStats/PlayersTable/Borders"]
+position = Vector2( 3.89465, 2.27832 )
+points = PoolVector2Array( 0, 0, 0, 173 )
+width = 1.0
+default_color = Color( 0.94902, 0.952941, 0.960784, 1 )
+
+[node name="Line2D2" type="Line2D" parent="GameStats/PlayersTable/Borders"]
+position = Vector2( 3.89465, 2.27832 )
+points = PoolVector2Array( 234, 0, 234, 173 )
+width = 1.0
+default_color = Color( 0.94902, 0.952941, 0.960784, 1 )
+
+[node name="Line2D3" type="Line2D" parent="GameStats/PlayersTable/Borders"]
+position = Vector2( 3.89465, 2.27832 )
+points = PoolVector2Array( 469, 0, 469, 173 )
+width = 1.0
+default_color = Color( 0.94902, 0.952941, 0.960784, 1 )
+
+[node name="Line2D4" type="Line2D" parent="GameStats/PlayersTable/Borders"]
+position = Vector2( 3.89465, 2.27832 )
+points = PoolVector2Array( 0, 30, 469, 30 )
+width = 1.0
+default_color = Color( 0.94902, 0.952941, 0.960784, 1 )
+
+[node name="Column_UnitsKilled" type="Control" parent="GameStats/PlayersTable"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 237.0
+margin_bottom = 175.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="GameStats/PlayersTable/Column_UnitsKilled"]
+margin_left = 3.95825
+margin_top = 0.0826416
+margin_right = 203.958
+margin_bottom = 26.0826
+custom_fonts/font = SubResource( 9 )
+text = "enemy units killed"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameStats/PlayersTable/Column_UnitsKilled"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 31.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerLine1" parent="GameStats/PlayersTable/Column_UnitsKilled/VBoxContainer" instance=ExtResource( 8 )]
+
+[node name="PlayerLine2" parent="GameStats/PlayersTable/Column_UnitsKilled/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 30.0
+margin_bottom = 56.0
+
+[node name="PlayerLine3" parent="GameStats/PlayersTable/Column_UnitsKilled/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 60.0
+margin_bottom = 86.0
+
+[node name="PlayerLine4" parent="GameStats/PlayersTable/Column_UnitsKilled/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 90.0
+margin_bottom = 116.0
+
+[node name="PlayerLine5" parent="GameStats/PlayersTable/Column_UnitsKilled/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 120.0
+margin_bottom = 146.0
+
+[node name="Column_XP" type="Control" parent="GameStats/PlayersTable"]
+margin_left = 238.588
+margin_top = 3.44995
+margin_right = 470.588
+margin_bottom = 175.45
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="GameStats/PlayersTable/Column_XP"]
+margin_left = 3.95825
+margin_top = 0.0826416
+margin_right = 203.958
+margin_bottom = 26.0826
+custom_fonts/font = SubResource( 9 )
+text = "xp gained"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameStats/PlayersTable/Column_XP"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 31.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerLine1" parent="GameStats/PlayersTable/Column_XP/VBoxContainer" instance=ExtResource( 8 )]
+
+[node name="PlayerLine2" parent="GameStats/PlayersTable/Column_XP/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 30.0
+margin_bottom = 56.0
+
+[node name="PlayerLine3" parent="GameStats/PlayersTable/Column_XP/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 60.0
+margin_bottom = 86.0
+
+[node name="PlayerLine4" parent="GameStats/PlayersTable/Column_XP/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 90.0
+margin_bottom = 116.0
+
+[node name="PlayerLine5" parent="GameStats/PlayersTable/Column_XP/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 120.0
+margin_bottom = 146.0
 [connection signal="finished" from="CutscenePlayer" to="." method="_on_cutscene_finished"]

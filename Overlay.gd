@@ -48,6 +48,15 @@ func incoming_message(id):
 			$GGVote.hide()
 			$NoClientWarning.hide()
 			
+	if json.has("stats"):
+		$GameStats.update_state(json["stats"])
+		
+	if json.has("creepingLine"):
+		$GameStats.update_cline(json["creepingLine"])
+	
+	if json.has("playerStats"):
+		$GameStats.update_pstats(json["playerStats"])
+			
 	if json.has("ggvote"):
 		$GGVote.set_value(int(json["ggvote"]))
 	

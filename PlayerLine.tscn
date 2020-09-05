@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Michroma.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Courier New.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.207843 )
+use_filter = true
+extra_spacing_char = -3
+font_data = ExtResource( 2 )
+
+[node name="PlayerLine1" type="HBoxContainer"]
+margin_right = 232.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 0, 26 )
+custom_constants/separation = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="Label" parent="."]
+margin_top = -1.0
+margin_right = 180.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 150, 26 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "naturalhomemadenutella"
+valign = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="."]
+margin_left = 181.0
+margin_top = -1.0
+margin_right = 232.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 26 )
+custom_fonts/font = SubResource( 2 )
+text = "173156"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -3,7 +3,8 @@
 [ext_resource path="res://TechIcon.gd" type="Script" id=1]
 [ext_resource path="res://tech_icon.tres" type="Material" id=2]
 [ext_resource path="res://icons/black.bmp" type="Texture" id=3]
-[ext_resource path="res://michroma.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/michroma.tres" type="DynamicFont" id=4]
+
 
 [sub_resource type="Curve" id=1]
 max_value = 321.78

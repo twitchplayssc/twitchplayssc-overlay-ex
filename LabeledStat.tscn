@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LabeledStat.gd" type="Script" id=1]
+[ext_resource path="res://overlay_label_blue.tres" type="DynamicFont" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Michroma.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_color = Color( 0.847059, 0.847059, 0.847059, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1 )
+
+[node name="PlayerCount" type="Control"]
+margin_left = 380.0
+margin_top = 931.0
+margin_right = 501.0
+margin_bottom = 992.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 3.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.901961, 0.886275, 0.831373, 1 )
+text = "4"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 26.6873
+margin_bottom = 56.6873
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.211765, 0.603922, 0.960784, 1 )
+text = "players"
+valign = 1
