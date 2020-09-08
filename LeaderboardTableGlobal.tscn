@@ -1,0 +1,165 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://LeaderboardEntryGlobal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/Michroma.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://LeaderboardTableGlobal.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0.278431, 0.290196, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.647059 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Leaderboard" type="PanelContainer"]
+margin_right = 700.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="VBoxContainer" parent="."]
+margin_right = 700.0
+margin_bottom = 985.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="Table"]
+margin_right = 700.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+text = "Units Killed"
+align = 1
+
+[node name="LeaderboardEntry1" parent="Table" instance=ExtResource( 1 )]
+margin_top = 39.0
+margin_right = 700.0
+margin_bottom = 73.0
+
+[node name="LeaderboardEntry2" parent="Table" instance=ExtResource( 1 )]
+margin_top = 77.0
+margin_right = 700.0
+margin_bottom = 111.0
+
+[node name="LeaderboardEntry3" parent="Table" instance=ExtResource( 1 )]
+margin_top = 115.0
+margin_right = 700.0
+margin_bottom = 149.0
+
+[node name="LeaderboardEntry4" parent="Table" instance=ExtResource( 1 )]
+margin_top = 153.0
+margin_right = 700.0
+margin_bottom = 187.0
+
+[node name="LeaderboardEntry5" parent="Table" instance=ExtResource( 1 )]
+margin_top = 191.0
+margin_right = 700.0
+margin_bottom = 225.0
+
+[node name="LeaderboardEntry6" parent="Table" instance=ExtResource( 1 )]
+margin_top = 229.0
+margin_right = 700.0
+margin_bottom = 263.0
+
+[node name="LeaderboardEntry7" parent="Table" instance=ExtResource( 1 )]
+margin_top = 267.0
+margin_right = 700.0
+margin_bottom = 301.0
+
+[node name="LeaderboardEntry8" parent="Table" instance=ExtResource( 1 )]
+margin_top = 305.0
+margin_right = 700.0
+margin_bottom = 339.0
+
+[node name="LeaderboardEntry9" parent="Table" instance=ExtResource( 1 )]
+margin_top = 343.0
+margin_right = 700.0
+margin_bottom = 377.0
+
+[node name="LeaderboardEntry10" parent="Table" instance=ExtResource( 1 )]
+margin_top = 381.0
+margin_right = 700.0
+margin_bottom = 415.0
+
+[node name="LeaderboardEntry11" parent="Table" instance=ExtResource( 1 )]
+margin_top = 419.0
+margin_right = 700.0
+margin_bottom = 453.0
+
+[node name="LeaderboardEntry12" parent="Table" instance=ExtResource( 1 )]
+margin_top = 457.0
+margin_right = 700.0
+margin_bottom = 491.0
+
+[node name="LeaderboardEntry13" parent="Table" instance=ExtResource( 1 )]
+margin_top = 495.0
+margin_right = 700.0
+margin_bottom = 529.0
+
+[node name="LeaderboardEntry14" parent="Table" instance=ExtResource( 1 )]
+margin_top = 533.0
+margin_right = 700.0
+margin_bottom = 567.0
+
+[node name="LeaderboardEntry15" parent="Table" instance=ExtResource( 1 )]
+margin_top = 571.0
+margin_right = 700.0
+margin_bottom = 605.0
+
+[node name="LeaderboardEntry16" parent="Table" instance=ExtResource( 1 )]
+margin_top = 609.0
+margin_right = 700.0
+margin_bottom = 643.0
+
+[node name="LeaderboardEntry17" parent="Table" instance=ExtResource( 1 )]
+margin_top = 647.0
+margin_right = 700.0
+margin_bottom = 681.0
+
+[node name="LeaderboardEntry18" parent="Table" instance=ExtResource( 1 )]
+margin_top = 685.0
+margin_right = 700.0
+margin_bottom = 719.0
+
+[node name="LeaderboardEntry19" parent="Table" instance=ExtResource( 1 )]
+margin_top = 723.0
+margin_right = 700.0
+margin_bottom = 757.0
+
+[node name="LeaderboardEntry20" parent="Table" instance=ExtResource( 1 )]
+margin_top = 761.0
+margin_right = 700.0
+margin_bottom = 795.0
+
+[node name="LeaderboardEntry21" parent="Table" instance=ExtResource( 1 )]
+margin_top = 799.0
+margin_right = 700.0
+margin_bottom = 833.0
+
+[node name="LeaderboardEntry22" parent="Table" instance=ExtResource( 1 )]
+margin_top = 837.0
+margin_right = 700.0
+margin_bottom = 871.0
+
+[node name="LeaderboardEntry23" parent="Table" instance=ExtResource( 1 )]
+margin_top = 875.0
+margin_right = 700.0
+margin_bottom = 909.0
+
+[node name="LeaderboardEntry24" parent="Table" instance=ExtResource( 1 )]
+margin_top = 913.0
+margin_right = 700.0
+margin_bottom = 947.0
+
+[node name="LeaderboardEntry25" parent="Table" instance=ExtResource( 1 )]
+margin_top = 951.0
+margin_right = 700.0
+margin_bottom = 985.0

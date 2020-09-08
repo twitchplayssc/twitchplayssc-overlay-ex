@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://TextureRect.gd" type="Script" id=1]
+[ext_resource path="res://icons/leagues/icon_silver.png" type="Texture" id=2]
+[ext_resource path="res://icons/leagues/icon_gold.png" type="Texture" id=3]
+[ext_resource path="res://icons/leagues/icon_platinum.png" type="Texture" id=4]
+[ext_resource path="res://icons/leagues/icon_diamond.png" type="Texture" id=5]
+[ext_resource path="res://icons/leagues/icon_bronze.png" type="Texture" id=6]
+[ext_resource path="res://icons/leagues/icon_master.png" type="Texture" id=7]
+[ext_resource path="res://icons/leagues/icon_grandmaster.png" type="Texture" id=8]
+
+[node name="LeagueIcon" type="TextureRect"]
+margin_right = 105.0
+margin_bottom = 105.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+stretch_mode = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+TBronze = ExtResource( 6 )
+TSilver = ExtResource( 2 )
+TGold = ExtResource( 3 )
+TPlatinum = ExtResource( 4 )
+TDiamond = ExtResource( 5 )
+TMaster = ExtResource( 7 )
+TGM = ExtResource( 8 )

@@ -4,12 +4,11 @@ extends Control
 func _ready():
 	pass # Replace with function body.
 
-func update_stats(json):
+func update_state(json):
 	$APMCount/Value.text = json["apm"]
-	$WLRatio/Value.text = json["gamesWon"] + String("/") + json["GamesLost"]
+	$WLRatio/Value.text = json["gamesWon"] + String("/") + json["gamesLost"]
 	$PlayerCount/Value.text = json["players"]
 	$Level/Value.text = json["aiLevel"]
-	$Panel/Credits.text = json["credits"] + " Credits"
 
 func update_cline(json):
 	$CreepingLine/Label.text = json["text"]

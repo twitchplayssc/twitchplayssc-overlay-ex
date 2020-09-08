@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://EventLabel.gd" type="Script" id=1]
+[ext_resource path="res://Panel.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Michroma.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://EventLine.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.156863, 0.156863, 0.156863, 0.588235 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="EventLine" type="Control"]
+margin_right = 800.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 800, 32 )
+rect_clip_content = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "[color=#FF4444]naturalhomemadenutella[/color] has joined the g"
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 700.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Panel"]
+margin_left = 6.0
+margin_right = 700.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 700, 32 )
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=#FF4444]naturalhomemadenutella[/color] has joined the game"
+meta_underlined = false
+text = "naturalhomemadenutella has joined the game"
+scroll_active = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeTime" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="LifeTime" to="." method="_on_LifeTime_timeout"]

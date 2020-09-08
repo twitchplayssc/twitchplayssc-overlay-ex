@@ -27,6 +27,7 @@ func incoming_message(id):
 	
 	if json.has("mode"):
 		if json["mode"]=="compact":
+			$Leaderboards.hide()			
 			if json.has("race") and json["race"]=="terran":
 				remove_child($TechPanel)
 				add_child(TechPanel_Terran.instance())
@@ -47,6 +48,9 @@ func incoming_message(id):
 			$TechPanel.hide()
 			$GGVote.hide()
 			$NoClientWarning.hide()
+			$GameStats.hide()
+			$Leaderboards.update_state(json)
+			$Leaderboards.show()			
 			
 	if json.has("stats"):
 		$GameStats.update_state(json["stats"])
@@ -71,6 +75,10 @@ func incoming_message(id):
 
 	if json.has("mission_select"):
 		$MissionSelect.update_state(json["mission_select"])
+	
+	if json.has("inGameEvents"):
+		for event in json["inGameEvents"]:
+			$EventBoard.push_event(event)
 	
 	if json.has("upgrades"):
 		var upgrades = json["upgrades"]		
@@ -111,7 +119,8 @@ func enable_overlay():
 	$TechPanel.show()	
 	for node in $TechPanel/GridContainer.get_children():
 		node.gray_out()
-	$MissionSelect.hide()	
+	$MissionSelect.hide()
+	$GameStats.show()	
 	show()
 	
 func disable_overlay():
@@ -122,6 +131,7 @@ func disable_overlay():
 	$"LabShop Zerg".hide()
 	$NoClientWarning.hide()
 	$MissionSelect.hide()
+	$GameStats.hide()
 	hide()
 
 
