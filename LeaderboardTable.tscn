@@ -5,7 +5,7 @@
 [ext_resource path="res://LeaderboardTable.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0.278431, 0.290196, 1 )
+bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -24,6 +24,9 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
 
 [node name="Table" type="VBoxContainer" parent="."]
 margin_right = 700.0
@@ -88,3 +91,4 @@ margin_bottom = 377.0
 margin_top = 381.0
 margin_right = 700.0
 margin_bottom = 415.0
+[connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]

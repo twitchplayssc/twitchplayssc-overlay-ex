@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://fonts/leaderboard_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/leaderboard_lucia.tres" type="DynamicFont" id=1]
 [ext_resource path="res://LeaderboardEntryGlobal.gd" type="Script" id=2]
 [ext_resource path="res://icons/badges/64px/forge.png" type="Texture" id=3]
 [ext_resource path="res://icons/badges/64px/turret.png" type="Texture" id=4]
@@ -32,8 +32,13 @@
 [ext_resource path="res://icons/badges/64px/top25_s2.png" type="Texture" id=30]
 [ext_resource path="res://LeagueIcon.tscn" type="PackedScene" id=32]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0.333333, 0.447059, 1 )
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.0980392, 0.0901961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0.396078, 0.364706, 1 )
 
 [node name="LeaderboardEntry" type="PanelContainer"]
 margin_top = 47.0
@@ -45,15 +50,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BG_Default" type="Panel" parent="."]
+margin_right = 721.0
+margin_bottom = 48.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="BG_Highlight" type="Panel" parent="."]
+margin_right = 721.0
+margin_bottom = 48.0
+custom_styles/panel = SubResource( 3 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 721.0
-margin_bottom = 34.0
+margin_bottom = 48.0
 custom_constants/separation = -3
 
 [node name="Number" type="Label" parent="HBoxContainer"]
-margin_top = 5.0
+margin_top = 13.0
 margin_right = 40.0
-margin_bottom = 29.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 40, 0 )
 rect_clip_content = true
 size_flags_horizontal = 0
@@ -66,7 +81,7 @@ clip_text = true
 [node name="League" type="Control" parent="HBoxContainer"]
 margin_left = 37.0
 margin_right = 71.0
-margin_bottom = 34.0
+margin_bottom = 48.0
 rect_min_size = Vector2( 34, 34 )
 size_flags_vertical = 5
 
@@ -75,8 +90,8 @@ rect_scale = Vector2( 0.3, 0.3 )
 
 [node name="PlayerNameBar" type="Control" parent="HBoxContainer"]
 margin_left = 68.0
-margin_right = 485.0
-margin_bottom = 34.0
+margin_right = 535.0
+margin_bottom = 48.0
 rect_clip_content = true
 size_flags_horizontal = 3
 
@@ -96,34 +111,34 @@ __meta__ = {
 }
 
 [node name="Badges" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 482.0
-margin_right = 574.0
-margin_bottom = 34.0
+margin_left = 532.0
+margin_right = 624.0
+margin_bottom = 48.0
 custom_constants/separation = -2
 
 [node name="nutella2" type="TextureRect" parent="HBoxContainer/Badges"]
 margin_right = 32.0
-margin_bottom = 34.0
+margin_bottom = 48.0
 texture = ExtResource( 17 )
 
 [node name="scooter_elite2" type="TextureRect" parent="HBoxContainer/Badges"]
 margin_left = 30.0
 margin_right = 62.0
-margin_bottom = 34.0
+margin_bottom = 48.0
 texture = ExtResource( 18 )
 
 [node name="survival2" type="TextureRect" parent="HBoxContainer/Badges"]
 margin_left = 60.0
 margin_right = 92.0
-margin_bottom = 34.0
+margin_bottom = 48.0
 texture = ExtResource( 20 )
 
 [node name="Value" type="Label" parent="HBoxContainer"]
-margin_left = 571.0
-margin_top = 5.0
+margin_left = 621.0
+margin_top = 13.0
 margin_right = 721.0
-margin_bottom = 29.0
-rect_min_size = Vector2( 150, 0 )
+margin_bottom = 34.0
+rect_min_size = Vector2( 100, 0 )
 rect_clip_content = true
 size_flags_horizontal = 12
 custom_fonts/font = ExtResource( 1 )

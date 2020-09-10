@@ -15,6 +15,7 @@ func update_state(json):
 	for board in json["gameleaderboards"]:
 		var node = $Screen1/LB_Grid.get_child(i)
 		node.update_state(board)
+		node.set_timer(float(i))
 		i+=1
 	
 	i = 0

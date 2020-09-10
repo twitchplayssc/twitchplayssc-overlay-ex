@@ -152,9 +152,10 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 0.368627 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 4
-text = "VICTORY"
+text = "Victory"
 align = 1
 valign = 1
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -308,6 +309,7 @@ margin_right = 1919.0
 margin_bottom = 831.0
 
 [node name="Screen2" type="Control" parent="Leaderboards"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -670,5 +672,10 @@ script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PingTimeout" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="timeout" from="Leaderboards/Screen1_Wait" to="Leaderboards" method="_on_screen1_timeout"]
 [connection signal="finished" from="CutscenePlayer" to="." method="_on_cutscene_finished"]
+[connection signal="timeout" from="PingTimeout" to="." method="_on_PingTimeout"]

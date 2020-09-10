@@ -17,7 +17,7 @@ func incoming_connection(_id, _proto):
 	show()
 
 func disconnection(_id, _wtf):
-	$NoClientWarning.show()	
+	$NoClientWarning.show()
 	for node in $TechPanel/GridContainer.get_children():
 		node.highlight()
 		node.in_progress()
@@ -25,6 +25,12 @@ func disconnection(_id, _wtf):
 func incoming_message(id):
 	var pkt = server.get_peer(id).get_packet()
 	var s = pkt.get_string_from_utf8()
+	
+	$PingTimeout.start()
+	
+	if s=="ping":
+		return
+	
 	var json = JSON.parse(s.substr(5)).result
 	
 	if json.has("mode"):
@@ -141,3 +147,9 @@ func disable_overlay():
 
 func _on_cutscene_finished():
 	$CutscenePlayer.hide()
+
+
+func _on_PingTimeout():
+	server = WebSocketServer.new()
+	var _err = server.listen(14228)
+	$PingTimeout.start()

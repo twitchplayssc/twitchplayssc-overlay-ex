@@ -8,6 +8,7 @@ func set_text(new_value):
 		$Panel/Label.bbcode_text = new_value
 
 func _ready():
+	$Panel/Label.bbcode_enabled = true
 	$Panel/Label.bbcode_text = text
 
 func _on_LifeTime_timeout():

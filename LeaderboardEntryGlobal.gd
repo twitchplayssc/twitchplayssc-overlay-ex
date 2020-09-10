@@ -1,9 +1,7 @@
 extends PanelContainer
 
-var style = StyleBoxFlat.new()
-
 func ready():
-	add_stylebox_override("panel", style)
+	$BG_Highlight.hide()
 
 func reset():
 	for node in $HBoxContainer/Badges.get_children():
@@ -14,9 +12,9 @@ func update_state(num, player):
 	$HBoxContainer/Number.text = String(num)
 	
 	if player.has("highlight") and player["highlight"] == "true":
-		style.set_bg_color(Color("55AAFF"))
+		$BG_Highlight.show()
 	else:
-		style.set_bg_color(Color("#005572"))		
+		$BG_Highlight.hide()
 	var max_badges = 5
 	for badge in player["badges"]:
 		var badge_node = $BadgesSmall.get_node(badge)
