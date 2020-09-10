@@ -40,7 +40,7 @@
 [ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel0.dds" type="Texture" id=38]
 [ext_resource path="res://icons/protoss/research/btn-ability-protoss-blink-color.dds" type="Texture" id=39]
 [ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel3.dds" type="Texture" id=40]
-[ext_resource path="res://icons/terran/research/btn-techupgrade-terran-combatshield-color.dds" type="Texture" id=41]
+[ext_resource path="res://icons/protoss/research/btn-ability-protoss-charge-color.dds" type="Texture" id=41]
 [ext_resource path="res://icons/protoss/upgrades/btn-upgrade-protoss-shieldslevel2.dds" type="Texture" id=42]
 [ext_resource path="res://icons/protoss/research/btn-upgrade-protoss-resonatingglaives.dds" type="Texture" id=43]
 [ext_resource path="res://TechIcon.tscn" type="PackedScene" id=46]
@@ -54,26 +54,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="Control" parent="."]
-margin_left = -1.0
-margin_top = -336.0
-margin_right = 376.0
-margin_bottom = 366.0
-rect_clip_content = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="TextureRect" parent="Background"]
+[node name="Background2" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1920.0
-margin_top = -411.0
+margin_left = -1909.0
+margin_top = -346.0
+margin_right = 11.0
+margin_bottom = 66.0
 texture = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -171,7 +162,7 @@ icon_texture_l1 = ExtResource( 15 )
 icon_texture_l2 = ExtResource( 18 )
 icon_texture_l3 = ExtResource( 14 )
 
-[node name="charge" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="zealot" parent="GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -239,7 +230,7 @@ icon_texture_l1 = ExtResource( 28 )
 icon_texture_l2 = ExtResource( 30 )
 icon_texture_l3 = ExtResource( 37 )
 
-[node name="blink" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="stalker" parent="GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -294,7 +285,7 @@ icon_texture_l1 = ExtResource( 35 )
 icon_texture_l2 = ExtResource( 42 )
 icon_texture_l3 = ExtResource( 40 )
 
-[node name="warpgate" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="warp" parent="GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
