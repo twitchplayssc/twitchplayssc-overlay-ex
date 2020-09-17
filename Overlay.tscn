@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://tech panel/TechPanel_Terran.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CutscenePlayer.tscn" type="PackedScene" id=2]
@@ -19,6 +19,13 @@
 [ext_resource path="res://LeaderboardTable.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Leaderboards.gd" type="Script" id=18]
 [ext_resource path="res://LeaderboardTableGlobal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://icons/badges/64px/nutella.png" type="Texture" id=20]
+[ext_resource path="res://BadgesLarge.tscn" type="PackedScene" id=21]
+[ext_resource path="res://fonts/Lucida Console.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://Forges.gd" type="Script" id=23]
+[ext_resource path="res://BadgesFall.gd" type="Script" id=24]
+[ext_resource path="res://BadgesSmall.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Effects.gd" type="Script" id=26]
 [ext_resource path="res://fonts/michroma.tres" type="DynamicFont" id=48]
 [ext_resource path="res://GGVote.gd" type="Script" id=49]
 [ext_resource path="res://campaign scenes/armory  shop/ArmoryShop.tscn" type="PackedScene" id=50]
@@ -101,6 +108,12 @@ outline_color = Color( 1, 1, 1, 0.184314 )
 use_filter = true
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=15]
+size = 21
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 22 )
+
 [node name="Overlay" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -161,20 +174,21 @@ __meta__ = {
 }
 
 [node name="MVP" type="HBoxContainer" parent="Leaderboards/Screen1"]
-anchor_right = 1.0
+margin_left = 32.0
 margin_top = 125.0
-margin_right = 0.00012207
+margin_right = 814.0
 margin_bottom = 275.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LSep" type="Control" parent="Leaderboards/Screen1/MVP"]
-margin_right = 506.0
+visible = false
 margin_bottom = 150.0
 size_flags_horizontal = 3
 
 [node name="LCup" type="CenterContainer" parent="Leaderboards/Screen1/MVP"]
+visible = false
 margin_left = 510.0
 margin_right = 553.0
 margin_bottom = 150.0
@@ -201,8 +215,7 @@ __meta__ = {
 }
 
 [node name="MVPLabel" type="Label" parent="Leaderboards/Screen1/MVP"]
-margin_left = 557.0
-margin_right = 685.0
+margin_right = 128.0
 margin_bottom = 150.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
@@ -211,21 +224,23 @@ text = "MVP:"
 valign = 1
 
 [node name="MVPLeague" type="CenterContainer" parent="Leaderboards/Screen1/MVP"]
-margin_left = 689.0
-margin_right = 741.0
+margin_left = 132.0
+margin_right = 196.0
 margin_bottom = 150.0
+rect_min_size = Vector2( 64, 0 )
 
 [node name="Scale" type="Control" parent="Leaderboards/Screen1/MVP/MVPLeague"]
+margin_left = 6.0
 margin_top = 49.0
-margin_right = 52.0
+margin_right = 58.0
 margin_bottom = 101.0
 rect_min_size = Vector2( 52, 52 )
 
 [node name="LeagueIcon" parent="Leaderboards/Screen1/MVP/MVPLeague/Scale" instance=ExtResource( 15 )]
 
 [node name="MVPName" type="Label" parent="Leaderboards/Screen1/MVP"]
-margin_left = 745.0
-margin_right = 1363.0
+margin_left = 200.0
+margin_right = 818.0
 margin_bottom = 150.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 4 )
@@ -234,8 +249,9 @@ text = "naturalhomemadenutella"
 valign = 1
 
 [node name="LCup2" type="CenterContainer" parent="Leaderboards/Screen1/MVP"]
-margin_left = 1367.0
-margin_right = 1410.0
+visible = false
+margin_left = 814.0
+margin_right = 857.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 43, 43 )
 
@@ -260,10 +276,266 @@ __meta__ = {
 }
 
 [node name="RSep" type="Control" parent="Leaderboards/Screen1/MVP"]
-margin_left = 1414.0
-margin_right = 1920.0
+visible = false
+margin_left = 1317.0
+margin_right = 1808.0
 margin_bottom = 150.0
 size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Leaderboards/Screen1/MVP"]
+margin_left = 822.0
+margin_right = 1838.0
+margin_bottom = 150.0
+
+[node name="Badges" type="HBoxContainer" parent="Leaderboards/Screen1/MVP/CenterContainer"]
+margin_top = 43.0
+margin_right = 1016.0
+margin_bottom = 107.0
+
+[node name="Badge1" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge1"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_scale = Vector2( 0.1, 1 )
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge2" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge2"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge3" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge3"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge4" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge4"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge5" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge5"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge6" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge6"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge7" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 408.0
+margin_right = 472.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge7"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge8" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 476.0
+margin_right = 540.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge8"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge9" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 544.0
+margin_right = 608.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge9"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge10" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 612.0
+margin_right = 676.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge10"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge11" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 680.0
+margin_right = 744.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge11"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge12" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 748.0
+margin_right = 812.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge12"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge13" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 816.0
+margin_right = 880.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge13"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge14" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 884.0
+margin_right = 948.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge14"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Badge15" type="Control" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges"]
+margin_left = 952.0
+margin_right = 1016.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="Leaderboards/Screen1/MVP/CenterContainer/Badges/Badge15"]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BadgesLarge" parent="Leaderboards/Screen1/MVP" instance=ExtResource( 21 )]
+margin_left = 1838.0
+margin_right = 1838.0
+margin_bottom = 150.0
 
 [node name="LB_Grid" type="GridContainer" parent="Leaderboards/Screen1"]
 anchor_right = 1.0
@@ -367,6 +639,12 @@ margin_bottom = 985.0
 
 [node name="Screen1_Wait" type="Timer" parent="Leaderboards"]
 wait_time = 20.0
+
+[node name="MVP_Wait" type="Timer" parent="Leaderboards"]
+wait_time = 7.0
+
+[node name="MVP_NextBadge" type="Timer" parent="Leaderboards"]
+wait_time = 7.0
 
 [node name="TechPanel" parent="." instance=ExtResource( 1 )]
 
@@ -665,6 +943,19 @@ margin_bottom = 116.0
 margin_top = 120.0
 margin_bottom = 146.0
 
+[node name="Timer" type="Label" parent="GameStats"]
+margin_left = 243.0
+margin_top = 1035.0
+margin_right = 347.0
+margin_bottom = 1071.0
+custom_fonts/font = SubResource( 15 )
+text = "9:59:59"
+align = 1
+valign = 1
+
+[node name="SecondCounter" type="Timer" parent="GameStats"]
+autostart = true
+
 [node name="EventBoard" type="VBoxContainer" parent="."]
 margin_right = 800.0
 margin_bottom = 400.0
@@ -674,8 +965,36 @@ __meta__ = {
 }
 
 [node name="PingTimeout" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
+
+[node name="Effects" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Forges" type="Control" parent="Effects"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 23 )
+
+[node name="BadgesFall" type="Control" parent="Effects"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 24 )
+
+[node name="BadgesSmall" parent="Effects/BadgesFall" instance=ExtResource( 25 )]
+visible = false
+
+[node name="FallingBadges" type="Control" parent="Effects/BadgesFall"]
+margin_right = 40.0
+margin_bottom = 40.0
 [connection signal="timeout" from="Leaderboards/Screen1_Wait" to="Leaderboards" method="_on_screen1_timeout"]
+[connection signal="timeout" from="Leaderboards/MVP_Wait" to="Leaderboards" method="_on_MVP_timeout"]
+[connection signal="timeout" from="Leaderboards/MVP_NextBadge" to="Leaderboards" method="_on_MVP_NextBadge"]
 [connection signal="finished" from="CutscenePlayer" to="." method="_on_cutscene_finished"]
+[connection signal="timeout" from="GameStats/SecondCounter" to="GameStats" method="_on_Second"]
 [connection signal="timeout" from="PingTimeout" to="." method="_on_PingTimeout"]

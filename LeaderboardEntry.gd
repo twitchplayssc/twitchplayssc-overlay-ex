@@ -18,7 +18,7 @@ func activate():
 	
 func _process(delta):
 	if active and $Panel.rect_position.y < 0:
-		$Panel.rect_position.y += 100.0 * delta
+		$Panel.rect_position.y += 200.0 * delta
 
 func update_state(num, player):
 	$Panel/HBoxContainer/Number.text = String(num)
@@ -44,6 +44,6 @@ func update_state(num, player):
 	$Panel/HBoxContainer/League/Icon.update_state(player["league"])
 	$Panel/HBoxContainer/PlayerNameBar/PlayerName.text = player["name"]
 	$Panel/HBoxContainer/Value.text = String(player["value"])
-	$Panel.position.y = -37
+	$Panel.rect_position.y = -37
 	active = false
 	show()

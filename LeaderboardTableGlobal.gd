@@ -31,6 +31,8 @@ func update_state(board):
 	$Table/LeaderboardEntry25.reset()
 	
 	for player in board["players"]:
+		if i>= $Table.get_child_count():
+			break
 		$Table.get_child(i).update_state(i, player)
 		i+=1
 

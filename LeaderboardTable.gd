@@ -24,6 +24,8 @@ func update_state(board):
 	next_entry = 0
 	
 	for player in board["players"]:
+		if i>= $Table.get_child_count():
+			break
 		$Table.get_child(i).update_state(i, player)
 		i+=1
 		next_entry+=1
@@ -32,8 +34,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Delay_timeout():
-	$Table.get_child(next_entry).activate()
+	if next_entry > 0:
+		$Table.get_child(next_entry).activate()
 	if next_entry > 1:
 		next_entry-=1
-		$Delay.wait_time = 0.5
+		$Delay.wait_time = 0.3
 		$Delay.start()

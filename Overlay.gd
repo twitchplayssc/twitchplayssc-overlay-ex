@@ -31,11 +31,18 @@ func incoming_message(id):
 	if s=="ping":
 		return
 	
-	var json = JSON.parse(s.substr(5)).result
+	var json_parse = JSON.parse(s.substr(5))
+	var json
+	if json_parse.error == OK:
+		json = json_parse.result
+	else:
+		print("parsing error")
 	
 	if json.has("mode"):
 		if json["mode"]=="compact":
 			compact_state = true
+			$GameStats.reset_timer()
+			$Effects.reset()
 			$Leaderboards.hide()			
 			if json.has("race") and json["race"]=="terran":
 				remove_child($TechPanel)
@@ -86,9 +93,15 @@ func incoming_message(id):
 	if json.has("mission_select"):
 		$MissionSelect.update_state(json["mission_select"])
 	
-	if json.has("inGameEvents"):
-		for event in json["inGameEvents"]:
+	if json.has("events"):
+		for event in json["events"]:
 			$EventBoard.push_event(event)
+	
+	if json.has("effect"):
+		$Effects.launch(json["effect"])
+	
+	if json.has("micro"):
+		$TechPanel/Background.micro(json["micro"])
 	
 	if json.has("upgrades"):
 		var upgrades = json["upgrades"]		
@@ -121,6 +134,7 @@ func _ready():
 	var _err = server.listen(14228)
 	get_tree().get_root().set_transparent_background(true)
 	OS.window_per_pixel_transparency_enabled = true
+	$PingTimeout.start()
 
 func _process(_delta):
 	server.poll()
@@ -150,6 +164,11 @@ func _on_cutscene_finished():
 
 
 func _on_PingTimeout():
+	print("disconnected")
 	server = WebSocketServer.new()
+	server.connect("client_connected",self,"incoming_connection")
+	server.connect("client_disconnected",self,"disconnection")	
+	server.connect("data_received",self,"incoming_message")
 	var _err = server.listen(14228)
 	$PingTimeout.start()
+
