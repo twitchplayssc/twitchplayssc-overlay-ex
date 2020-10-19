@@ -1,35 +1,12 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/leaderboard_lucia.tres" type="DynamicFont" id=1]
 [ext_resource path="res://LeaderboardEntryGlobal.gd" type="Script" id=2]
-[ext_resource path="res://icons/badges/64px/forge.png" type="Texture" id=3]
-[ext_resource path="res://icons/badges/64px/turret.png" type="Texture" id=4]
-[ext_resource path="res://icons/badges/64px/top50_s2.png" type="Texture" id=5]
-[ext_resource path="res://icons/badges/64px/top50.png" type="Texture" id=6]
-[ext_resource path="res://icons/badges/32px/top50.png" type="Texture" id=7]
-[ext_resource path="res://icons/badges/32px/turret.png" type="Texture" id=8]
-[ext_resource path="res://icons/badges/32px/top50_s2.png" type="Texture" id=9]
-[ext_resource path="res://icons/badges/32px/forge.png" type="Texture" id=10]
-[ext_resource path="res://icons/badges/64px/scooter.png" type="Texture" id=11]
-[ext_resource path="res://icons/badges/32px/horsie.png" type="Texture" id=12]
-[ext_resource path="res://icons/badges/32px/survival_s2.png" type="Texture" id=13]
-[ext_resource path="res://icons/badges/64px/nutella.png" type="Texture" id=14]
-[ext_resource path="res://icons/badges/64px/horsie.png" type="Texture" id=15]
-[ext_resource path="res://icons/badges/64px/scooter_elite.png" type="Texture" id=16]
+[ext_resource path="res://BadgesSmall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BadgesLarge.tscn" type="PackedScene" id=4]
 [ext_resource path="res://icons/badges/32px/nutella.png" type="Texture" id=17]
 [ext_resource path="res://icons/badges/32px/scooter_elite.png" type="Texture" id=18]
-[ext_resource path="res://icons/badges/32px/top10.png" type="Texture" id=19]
 [ext_resource path="res://icons/badges/32px/survival.png" type="Texture" id=20]
-[ext_resource path="res://icons/badges/32px/top10_s2.png" type="Texture" id=21]
-[ext_resource path="res://icons/badges/32px/scooter.png" type="Texture" id=22]
-[ext_resource path="res://icons/badges/32px/top25_s2.png" type="Texture" id=23]
-[ext_resource path="res://icons/badges/32px/top25.png" type="Texture" id=24]
-[ext_resource path="res://icons/badges/64px/survival.png" type="Texture" id=25]
-[ext_resource path="res://icons/badges/64px/survival_s2.png" type="Texture" id=26]
-[ext_resource path="res://icons/badges/64px/top10_s2.png" type="Texture" id=27]
-[ext_resource path="res://icons/badges/64px/top25.png" type="Texture" id=28]
-[ext_resource path="res://icons/badges/64px/top10.png" type="Texture" id=29]
-[ext_resource path="res://icons/badges/64px/top25_s2.png" type="Texture" id=30]
 [ext_resource path="res://LeagueIcon.tscn" type="PackedScene" id=32]
 
 [sub_resource type="StyleBoxEmpty" id=1]
@@ -52,23 +29,23 @@ __meta__ = {
 
 [node name="BG_Default" type="Panel" parent="."]
 margin_right = 721.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 custom_styles/panel = SubResource( 2 )
 
 [node name="BG_Highlight" type="Panel" parent="."]
 margin_right = 721.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 custom_styles/panel = SubResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 721.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 custom_constants/separation = -3
 
 [node name="Number" type="Label" parent="HBoxContainer"]
-margin_top = 13.0
+margin_top = 6.0
 margin_right = 40.0
-margin_bottom = 34.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 40, 0 )
 rect_clip_content = true
 size_flags_horizontal = 0
@@ -81,7 +58,7 @@ clip_text = true
 [node name="League" type="Control" parent="HBoxContainer"]
 margin_left = 37.0
 margin_right = 71.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 34, 34 )
 size_flags_vertical = 5
 
@@ -91,7 +68,7 @@ rect_scale = Vector2( 0.3, 0.3 )
 [node name="PlayerNameBar" type="Control" parent="HBoxContainer"]
 margin_left = 68.0
 margin_right = 535.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 rect_clip_content = true
 size_flags_horizontal = 3
 
@@ -113,31 +90,31 @@ __meta__ = {
 [node name="Badges" type="HBoxContainer" parent="HBoxContainer"]
 margin_left = 532.0
 margin_right = 624.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 custom_constants/separation = -2
 
 [node name="nutella2" type="TextureRect" parent="HBoxContainer/Badges"]
 margin_right = 32.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 texture = ExtResource( 17 )
 
 [node name="scooter_elite2" type="TextureRect" parent="HBoxContainer/Badges"]
 margin_left = 30.0
 margin_right = 62.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 texture = ExtResource( 18 )
 
 [node name="survival2" type="TextureRect" parent="HBoxContainer/Badges"]
 margin_left = 60.0
 margin_right = 92.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 texture = ExtResource( 20 )
 
 [node name="Value" type="Label" parent="HBoxContainer"]
 margin_left = 621.0
-margin_top = 13.0
+margin_top = 6.0
 margin_right = 721.0
-margin_bottom = 34.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 100, 0 )
 rect_clip_content = true
 size_flags_horizontal = 12
@@ -147,152 +124,7 @@ text = "999999"
 align = 1
 clip_text = true
 
-[node name="BadgesSmall" type="Control" parent="."]
+[node name="BadgesSmall" parent="." instance=ExtResource( 3 )]
 visible = false
-margin_right = 721.0
-margin_bottom = 34.0
 
-[node name="nutella" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 17 )
-
-[node name="horsie" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 12 )
-
-[node name="scooter" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 22 )
-
-[node name="scooter_elite" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 18 )
-
-[node name="survival" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 20 )
-
-[node name="survival_s2" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 13 )
-
-[node name="top10" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 19 )
-
-[node name="top10_s2" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 21 )
-
-[node name="top25" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 24 )
-
-[node name="top25_s2" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 23 )
-
-[node name="top50" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 7 )
-
-[node name="top50_s2" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 9 )
-
-[node name="turret" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 8 )
-
-[node name="forge" type="TextureRect" parent="BadgesSmall"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 10 )
-
-[node name="BadgesLarge" type="Control" parent="."]
-visible = false
-margin_right = 721.0
-margin_bottom = 34.0
-
-[node name="nutella" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 14 )
-
-[node name="horsie" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 15 )
-
-[node name="scooter" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 11 )
-
-[node name="scooter_elite" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 16 )
-
-[node name="survival" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 25 )
-
-[node name="survival_s2" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 26 )
-
-[node name="top10" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 29 )
-
-[node name="top10_s2" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 27 )
-
-[node name="top25" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 28 )
-
-[node name="top25_s2" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 30 )
-
-[node name="top50" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 6 )
-
-[node name="top50_s2" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 5 )
-
-[node name="turret" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 4 )
-
-[node name="forge" type="TextureRect" parent="BadgesLarge"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 3 )
+[node name="BadgesLarge" parent="." instance=ExtResource( 4 )]

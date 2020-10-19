@@ -4,6 +4,7 @@ var server = WebSocketServer.new()
 var client_id = 0
 
 var compact_state = false
+var current_race = ""
 
 const TechPanel_Protoss = preload("res://tech panel/TechPanel_Protoss.tscn")
 const TechPanel_Terran = preload("res://tech panel/TechPanel_Terran.tscn")
@@ -28,7 +29,7 @@ func incoming_message(id):
 	
 	$PingTimeout.start()
 	
-	if s=="ping":
+	if s=="ping" or s=="":
 		return
 	
 	var json_parse = JSON.parse(s.substr(5))
@@ -40,25 +41,33 @@ func incoming_message(id):
 	
 	if json.has("mode"):
 		if json["mode"]=="compact":
-			compact_state = true
-			$GameStats.reset_timer()
-			$Effects.reset()
-			$Leaderboards.hide()			
+			if not compact_state:
+				compact_state = true
+				$GameStats.reset_timer()
+				$Effects.reset()
+				$Leaderboards.hide()
+				current_race = ""
 			if json.has("race") and json["race"]=="terran":
-				remove_child($TechPanel)
-				add_child(TechPanel_Terran.instance())
-				move_child($TechPanel,0)				
-				enable_overlay()
+				if current_race!="terran":
+					current_race = "terran"
+					remove_child($TechPanel)
+					add_child(TechPanel_Terran.instance())
+					move_child($TechPanel,0)				
+					enable_overlay()
 			if json.has("race") and json["race"]=="terran_wol":
-				remove_child($TechPanel)
-				add_child(TechPanel_WoL.instance())
-				move_child($TechPanel,0)
-				enable_overlay()
+				if current_race!="terran_wol":
+					current_race = "terran_wol"
+					remove_child($TechPanel)
+					add_child(TechPanel_WoL.instance())
+					move_child($TechPanel,0)
+					enable_overlay()
 			if json.has("race") and json["race"]=="protoss":
-				remove_child($TechPanel)
-				add_child(TechPanel_Protoss.instance())
-				move_child($TechPanel,0)				
-				enable_overlay()
+				if current_race!="protoss":
+					current_race = "protoss"
+					remove_child($TechPanel)
+					add_child(TechPanel_Protoss.instance())
+					move_child($TechPanel,0)				
+					enable_overlay()
 		else:
 			compact_state = false			
 			show()			
@@ -71,6 +80,9 @@ func incoming_message(id):
 			
 	if json.has("stats"):
 		$GameStats.update_state(json["stats"])
+	
+	if json.has("gameIntro"):
+		$GameStats/GameIntro.update_state(json["gameIntro"])
 		
 	if json.has("creepingLine"):
 		$GameStats.update_cline(json["creepingLine"])
