@@ -7,6 +7,7 @@ extends Panel
 
 var fade_in = false
 var fade_out = false
+var local_timer = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,6 +15,7 @@ func _ready():
 func fadeIn():
 	fade_in = true
 	fade_out = false
+	self.local_timer = 0.0
 	self.margin_left = 0
 	self.margin_right = 0
 	self.modulate.a = 1.0
@@ -39,8 +41,13 @@ func update_state(json):
 		fadeIn()
 	
 func _process(delta):
+	if not fade_in and not fade_out:
+		fade_in = true
 	if fade_in:
 		var speed = 500.0
+		local_timer += delta
+		if local_timer > 15.0:
+			fadeOut()
 		if self.margin_left >= -500:
 			self.margin_left -= delta*speed
 		if self.margin_right <= 500:

@@ -16,10 +16,17 @@ func gray_out():
 	$Icon.material.set_shader_param("grayout",1.0)
 	$progress_particles.hide()
 	set_amount(0)
+	hide_star()
 
 func highlight():
 	$Icon.material.set_shader_param("grayout",0.0)
 	$progress_particles.hide()	
+	
+func show_star():
+	$star.show()
+	
+func hide_star():
+	$star.hide()
 	
 func in_progress():
 	$Icon.material.set_shader_param("grayout",0.5)	

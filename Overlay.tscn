@@ -21,7 +21,7 @@
 [ext_resource path="res://LeaderboardTableGlobal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://icons/badges/64px/nutella.png" type="Texture" id=20]
 [ext_resource path="res://BadgesLarge.tscn" type="PackedScene" id=21]
-[ext_resource path="res://fonts/Lucida Console.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://timer_font.tres" type="DynamicFont" id=22]
 [ext_resource path="res://Forges.gd" type="Script" id=23]
 [ext_resource path="res://BadgesFall.gd" type="Script" id=24]
 [ext_resource path="res://BadgesSmall.tscn" type="PackedScene" id=25]
@@ -69,6 +69,8 @@ bg_color = Color( 0.756863, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="VideoStreamWebm" id=20]
 
 [sub_resource type="DynamicFontData" id=8]
 font_path = "res://Michroma.ttf"
@@ -147,12 +149,6 @@ outline_size = 1
 outline_color = Color( 1, 1, 1, 0.184314 )
 use_filter = true
 font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=20]
-size = 21
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 22 )
 
 [node name="Overlay" type="Control"]
 anchor_right = 1.0
@@ -731,6 +727,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
+stream = SubResource( 20 )
 autoplay = false
 script = ExtResource( 3 )
 
@@ -1058,11 +1055,12 @@ margin_top = 120.0
 margin_bottom = 146.0
 
 [node name="Timer" type="Label" parent="GameStats"]
+visible = false
 margin_left = 243.0
 margin_top = 1035.0
 margin_right = 347.0
 margin_bottom = 1071.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = ExtResource( 22 )
 text = "9:59:59"
 align = 1
 valign = 1
@@ -1097,6 +1095,9 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BadgesFall" type="Control" parent="Effects"]
 margin_right = 40.0
@@ -1109,6 +1110,9 @@ visible = false
 [node name="FallingBadges" type="Control" parent="Effects/BadgesFall"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Leaderboards/Screen1_Wait" to="Leaderboards" method="_on_screen1_timeout"]
 [connection signal="timeout" from="Leaderboards/MVP_Wait" to="Leaderboards" method="_on_MVP_timeout"]
 [connection signal="timeout" from="Leaderboards/MVP_NextBadge" to="Leaderboards" method="_on_MVP_NextBadge"]

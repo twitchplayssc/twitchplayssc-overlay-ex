@@ -3,27 +3,27 @@
 [ext_resource path="res://campaign scenes/lab shop/lab_option.tscn" type="PackedScene" id=1]
 [ext_resource path="res://campaign scenes/lab shop/LabShop.gd" type="Script" id=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.109863, 0.109863, 0.109863, 0.266667 )
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=2]
 font_path = "res://Michroma.ttf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 27
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = SubResource( 1 )
+font_data = SubResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 27
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = SubResource( 1 )
+font_data = SubResource( 2 )
 
 [node name="LabShop" type="Control"]
 anchor_right = 1.0
@@ -38,7 +38,7 @@ margin_left = 9.0
 margin_top = 435.0
 margin_right = 723.0
 margin_bottom = 557.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,7 +66,7 @@ margin_left = 9.54594
 margin_top = 3.88907
 margin_right = 320.546
 margin_bottom = 43.8891
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Zerg research"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,10 +77,14 @@ margin_left = 485.0
 margin_top = 9.0
 margin_right = 704.0
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.403922, 1, 0.415686, 1 )
 text = "99 Points"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MaxShowtime" type="Timer" parent="."]
+wait_time = 15.0
+[connection signal="timeout" from="MaxShowtime" to="." method="_on_MaxShowtime_timeout"]

@@ -6,6 +6,6 @@ func _ready():
 
 func play_cutscene(path):
 	#stream = VideoStreamWebm.new()
-	stream.resource_path = "res://cutscenes/"+path+".webm"
+	stream.set_file("res://cutscenes/"+path+".webm")
 	play()
 	pass

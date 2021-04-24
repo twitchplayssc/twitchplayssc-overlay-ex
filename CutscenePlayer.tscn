@@ -9,3 +9,6 @@ margin_bottom = 980.0
 stream = SubResource( 1 )
 autoplay = true
 buffering_msec = 510
+__meta__ = {
+"_edit_use_anchors_": false
+}

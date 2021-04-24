@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tech panel/BackgroundTerran.gd" type="Script" id=1]
+[ext_resource path="res://overlay_terran1.png" type="Texture" id=2]
+[ext_resource path="res://overlay_terran2.png" type="Texture" id=3]
+
+[node name="Background" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1547.0
+margin_top = -20.0
+margin_right = 8.0
+margin_bottom = 61.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="right_bg_black" type="ColorRect" parent="."]
+margin_left = 1544.0
+margin_top = 15.0
+margin_right = 1920.0
+margin_bottom = 333.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_side" type="NinePatchRect" parent="."]
+margin_left = 1923.03
+margin_top = 5.33588
+margin_right = 2307.03
+margin_bottom = 382.336
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 6.92966, 1.12925, 272.761, 362.742 )
+patch_margin_left = 7
+patch_margin_top = 26
+patch_margin_right = 6
+patch_margin_bottom = 71
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center" type="NinePatchRect" parent="."]
+margin_left = 364.0
+margin_top = 169.0
+margin_right = 1540.0
+margin_bottom = 382.0
+texture = ExtResource( 3 )
+patch_margin_left = 12
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="Minimap" type="Control" parent="."]
+margin_top = -100.0
+margin_right = 371.0
+margin_bottom = 382.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_side" type="NinePatchRect" parent="Minimap"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -412.0
+margin_right = 364.0
+texture = ExtResource( 2 )
+draw_center = false
+region_rect = Rect2( 0.343506, 18.2945, 279.992, 344.763 )
+patch_margin_left = 12
+patch_margin_top = 9
+patch_margin_right = 6
+patch_margin_bottom = 58
+axis_stretch_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

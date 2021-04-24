@@ -52,22 +52,23 @@ func incoming_message(id):
 					current_race = "terran"
 					remove_child($TechPanel)
 					add_child(TechPanel_Terran.instance())
-					move_child($TechPanel,0)				
-					enable_overlay()
+					move_child($TechPanel,0)
+					reset_tech()
 			if json.has("race") and json["race"]=="terran_wol":
 				if current_race!="terran_wol":
 					current_race = "terran_wol"
 					remove_child($TechPanel)
 					add_child(TechPanel_WoL.instance())
 					move_child($TechPanel,0)
-					enable_overlay()
+					reset_tech()
 			if json.has("race") and json["race"]=="protoss":
 				if current_race!="protoss":
 					current_race = "protoss"
 					remove_child($TechPanel)
 					add_child(TechPanel_Protoss.instance())
-					move_child($TechPanel,0)				
-					enable_overlay()
+					move_child($TechPanel,0)
+					reset_tech()
+			enable_overlay()
 		else:
 			compact_state = false			
 			show()			
@@ -127,8 +128,17 @@ func incoming_message(id):
 				if($TechPanel/GridContainer.has_node(key)):
 					var node = $TechPanel/GridContainer.get_node(key)
 					if u["enabled"]=="true":
-						if u["state"]=="present":
+						if u["state"]=="present" or u["state"]=="star":
+							if $TechPanel/GridContainer.has_node("unit_spectre") and $TechPanel/GridContainer.has_node("unit_ghost"):
+								if key == "unit_ghost":
+									$TechPanel/GridContainer.get_node("unit_spectre").hide()
+									$TechPanel/GridContainer.get_node("unit_ghost").show()
+								if key == "unit_spectre":
+									$TechPanel/GridContainer.get_node("unit_ghost").hide()
+									$TechPanel/GridContainer.get_node("unit_spectre").show()	
 							node.highlight()
+							if u["state"]=="star":
+								node.show_star()
 						else:
 							node.in_progress()
 					else:
@@ -140,6 +150,8 @@ func incoming_message(id):
 					
 
 func _ready():
+	$CutscenePlayer.play_cutscene("WOL_intro")
+	
 	server.connect("client_connected",self,"incoming_connection")
 	server.connect("client_disconnected",self,"disconnection")	
 	server.connect("data_received",self,"incoming_message")
@@ -151,10 +163,12 @@ func _ready():
 func _process(_delta):
 	server.poll()
 
-func enable_overlay():
-	$TechPanel.show()	
+func reset_tech():
 	for node in $TechPanel/GridContainer.get_children():
 		node.gray_out()
+	
+func enable_overlay():
+	$TechPanel.show()	
 	$MissionSelect.hide()
 	$GameStats.show()	
 	show()

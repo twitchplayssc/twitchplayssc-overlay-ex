@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TechIcon.gd" type="Script" id=1]
 [ext_resource path="res://tech_icon.tres" type="Material" id=2]
 [ext_resource path="res://icons/black.bmp" type="Texture" id=3]
 [ext_resource path="res://fonts/michroma.tres" type="DynamicFont" id=4]
-
+[ext_resource path="res://icons/star.png" type="Texture" id=5]
 
 [sub_resource type="Curve" id=1]
 max_value = 321.78
@@ -98,3 +98,18 @@ bbcode_text = "[b][center]99[/center][/b]"
 text = "99"
 fit_content_height = true
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="star" type="TextureRect" parent="."]
+visible = false
+margin_left = 48.8424
+margin_top = 2.09932
+margin_right = 1048.84
+margin_bottom = 1002.1
+rect_scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

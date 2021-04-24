@@ -11,7 +11,6 @@ void fragment(){
   gray.a = col.a;
   COLOR = mix(col, gray, grayout);
 }"
-custom_defines = ""
 
 [resource]
 shader = SubResource( 1 )

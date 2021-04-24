@@ -33,11 +33,14 @@ func _on_Second():
 		timer_seconds=0
 		timer_minutes+=1
 		if timer_minutes>=60:
+			timer_minutes = 0
 			timer_hours+=1
 	elif timer_seconds<0:
 		timer_seconds=0
 		timer_minutes-=1
 		if timer_minutes<0:
+			timer_minutes=0
 			timer_hours-=1
-	$Timer.text = String(timer_hours)+":"+String(timer_minutes+100).right(1)+":"+String(timer_seconds+100).right(1)
+	if get_parent().has_node("TechPanel/Timer"):
+		get_parent().get_node("TechPanel/Timer").text = String(timer_hours)+":"+String(timer_minutes+100).right(1)+":"+String(timer_seconds+100).right(1)
 	

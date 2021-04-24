@@ -12,8 +12,13 @@ func _ready():
 func update_state(json):
 	if json["show"] == "true":
 		show()
+		$MaxShowtime.start()
 	else:
 		hide()
 	$Panel/Credits.text = json["points"] + " Points"
 	$Panel/Shop/shop_option1.update_state(json["1"])
 	$Panel/Shop/shop_option2.update_state(json["2"])
+
+
+func _on_MaxShowtime_timeout():
+	hide()
