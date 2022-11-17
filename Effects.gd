@@ -19,3 +19,5 @@ func launch(effect):
 		b_forges = true
 	if effect["type"]=="badge":
 		$BadgesFall.launch(effect["param"])
+	if effect["type"]=="personal":
+		$Personal.launch(effect["param"])

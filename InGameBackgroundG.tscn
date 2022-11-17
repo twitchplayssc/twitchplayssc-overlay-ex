@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tech panel/BackgroundTerran.gd" type="Script" id=1]
+[ext_resource path="res://box2.png" type="Texture" id=2]
+[ext_resource path="res://box3.png" type="Texture" id=3]
+[ext_resource path="res://box_side2.png" type="Texture" id=4]
+
+[node name="Background" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1547.0
+margin_top = -20.0
+margin_right = 8.0
+margin_bottom = 61.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="right_bg_black" type="ColorRect" parent="."]
+margin_left = 1546.0
+margin_top = 8.0
+margin_right = 1920.0
+margin_bottom = 382.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ceneter_bg_black" type="ColorRect" parent="."]
+margin_left = 369.0
+margin_top = 173.0
+margin_right = 1539.0
+margin_bottom = 379.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_side" type="NinePatchRect" parent="."]
+margin_left = 1923.87
+margin_top = 5.60044
+margin_right = 2306.9
+margin_bottom = 382.601
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0.370346, 0.621773, 68.9742, 72.9215 )
+patch_margin_left = 19
+patch_margin_top = 16
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center" type="NinePatchRect" parent="."]
+margin_left = 364.0
+margin_top = 169.0
+margin_right = 1543.0
+margin_bottom = 383.0
+texture = ExtResource( 2 )
+patch_margin_left = 19
+patch_margin_top = 20
+patch_margin_right = 17
+patch_margin_bottom = 19
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minimap" type="Control" parent="."]
+margin_top = -100.0
+margin_right = 371.0
+margin_bottom = 382.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bot" type="NinePatchRect" parent="Minimap"]
+margin_left = 365.0
+margin_top = 428.0
+margin_right = 732.0
+margin_bottom = 482.0
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+region_rect = Rect2( 0.370346, 0.621773, 68.9742, 72.9215 )
+patch_margin_left = 19
+patch_margin_top = 16
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="frame" type="NinePatchRect" parent="Minimap"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -412.0
+margin_right = 364.0
+margin_bottom = -52.0
+texture = ExtResource( 2 )
+draw_center = false
+region_rect = Rect2( 0.463684, 0.354398, 69.0169, 74.1575 )
+patch_margin_left = 10
+patch_margin_top = 11
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="box_side2" type="Sprite" parent="."]
+position = Vector2( 940.604, 174.498 )
+scale = Vector2( 1, 0.45489 )
+texture = ExtResource( 4 )
+
+[node name="box_side3" type="Sprite" parent="."]
+position = Vector2( 942.06, 363.656 )
+scale = Vector2( 1, -0.877803 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 10, 0, 148, 50 )

@@ -13,6 +13,7 @@ func update_state(json):
 	$WLRatio/Value.text = json["gamesWon"] + String("/") + json["gamesLost"]
 	$PlayerCount/Value.text = json["players"]
 	$Level/Value.text = json["aiLevel"]
+	$Level/Label.text = json["aiTitle"]
 
 func update_cline(json):
 	$CreepingLine/Label.text = json["text"]

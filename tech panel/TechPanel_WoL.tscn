@@ -123,12 +123,19 @@ __meta__ = {
 
 [node name="Background" parent="." instance=ExtResource( 70 )]
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GCC" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="GCC"]
 anchor_right = 1.25
 anchor_bottom = 1.25
 margin_top = -6.0
-margin_right = 75.75
-margin_bottom = 81.0
+margin_right = 482.0
+margin_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.69, 0.69 )
@@ -139,14 +146,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="engibay" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="engibay" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 76.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 36 )
 
-[node name="armory" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="armory" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
@@ -154,7 +161,7 @@ margin_right = 152.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 27 )
 
-[node name="barracks" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="barracks" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -162,7 +169,7 @@ margin_right = 228.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 25 )
 
-[node name="factory" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="factory" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
@@ -170,7 +177,7 @@ margin_right = 304.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 34 )
 
-[node name="starport" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="starport" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
@@ -178,7 +185,7 @@ margin_right = 380.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 30 )
 
-[node name="fusion" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="fusion" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0
@@ -186,7 +193,7 @@ margin_right = 456.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 35 )
 
-[node name="ghost" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="ghost" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 456.0
@@ -194,7 +201,7 @@ margin_right = 532.0
 margin_bottom = 76.0
 icon_texture = ExtResource( 37 )
 
-[node name="inf_weapons" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="inf_weapons" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 76.0
@@ -205,7 +212,7 @@ icon_texture_l1 = ExtResource( 21 )
 icon_texture_l2 = ExtResource( 24 )
 icon_texture_l3 = ExtResource( 5 )
 
-[node name="veh_weapons" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="veh_weapons" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
@@ -217,7 +224,7 @@ icon_texture_l1 = ExtResource( 17 )
 icon_texture_l2 = ExtResource( 8 )
 icon_texture_l3 = ExtResource( 16 )
 
-[node name="unit_medic" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_medic" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -226,7 +233,7 @@ margin_right = 228.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 44 )
 
-[node name="unit_diamondback" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_diamondback" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
@@ -235,7 +242,7 @@ margin_right = 304.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 47 )
 
-[node name="unit_viking" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_viking" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
@@ -244,7 +251,7 @@ margin_right = 380.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 56 )
 
-[node name="unit_banshee" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_banshee" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0
@@ -253,7 +260,7 @@ margin_right = 456.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 63 )
 
-[node name="unit_ghost" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_ghost" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 456.0
@@ -262,7 +269,7 @@ margin_right = 532.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 62 )
 
-[node name="unit_spectre" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_spectre" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -272,7 +279,7 @@ margin_right = 532.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 72 )
 
-[node name="inf_armor" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="inf_armor" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 152.0
@@ -283,7 +290,7 @@ icon_texture_l1 = ExtResource( 3 )
 icon_texture_l2 = ExtResource( 11 )
 icon_texture_l3 = ExtResource( 4 )
 
-[node name="ship_weapons" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="ship_weapons" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
@@ -295,7 +302,7 @@ icon_texture_l1 = ExtResource( 22 )
 icon_texture_l2 = ExtResource( 15 )
 icon_texture_l3 = ExtResource( 23 )
 
-[node name="unit_marauder" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_marauder" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -304,7 +311,7 @@ margin_right = 228.0
 margin_bottom = 228.0
 icon_texture = ExtResource( 58 )
 
-[node name="unit_hellion" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_hellion" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
@@ -313,7 +320,7 @@ margin_right = 304.0
 margin_bottom = 228.0
 icon_texture = ExtResource( 60 )
 
-[node name="unit_medivac" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_medivac" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
@@ -322,7 +329,7 @@ margin_right = 380.0
 margin_bottom = 228.0
 icon_texture = ExtResource( 61 )
 
-[node name="unit_bc" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_bc" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0
@@ -331,7 +338,7 @@ margin_right = 456.0
 margin_bottom = 228.0
 icon_texture = ExtResource( 64 )
 
-[node name="unit_reaper" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_reaper" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 456.0
@@ -340,7 +347,7 @@ margin_right = 532.0
 margin_bottom = 228.0
 icon_texture = ExtResource( 66 )
 
-[node name="unit_goliath" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_goliath" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 228.0
@@ -348,7 +355,7 @@ margin_right = 76.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 65 )
 
-[node name="ship_plating" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="ship_plating" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
@@ -360,7 +367,7 @@ icon_texture_l1 = ExtResource( 14 )
 icon_texture_l2 = ExtResource( 10 )
 icon_texture_l3 = ExtResource( 6 )
 
-[node name="unit_firebat" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_firebat" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -369,7 +376,7 @@ margin_right = 228.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 57 )
 
-[node name="unit_tank" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_tank" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
@@ -378,7 +385,7 @@ margin_right = 304.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 59 )
 
-[node name="unit_wraith" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_wraith" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
@@ -387,7 +394,7 @@ margin_right = 380.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 69 )
 
-[node name="unit_vulture" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_vulture" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0
@@ -396,7 +403,7 @@ margin_right = 456.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 68 )
 
-[node name="unit_thor" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="unit_thor" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 456.0
@@ -405,14 +412,14 @@ margin_right = 532.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 67 )
 
-[node name="placeholder7" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="placeholder7" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 304.0
 margin_right = 76.0
 margin_bottom = 380.0
 
-[node name="plating" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="plating" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
@@ -424,7 +431,7 @@ icon_texture_l1 = ExtResource( 51 )
 icon_texture_l2 = ExtResource( 49 )
 icon_texture_l3 = ExtResource( 52 )
 
-[node name="lab_p1" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_p1" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -434,7 +441,7 @@ margin_bottom = 380.0
 icon_texture_l1 = ExtResource( 2 )
 icon_texture_l2 = ExtResource( 9 )
 
-[node name="lab_p2" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_p2" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
@@ -444,7 +451,7 @@ margin_bottom = 380.0
 icon_texture_l1 = ExtResource( 7 )
 icon_texture_l2 = ExtResource( 12 )
 
-[node name="lab_p3" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_p3" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
@@ -454,7 +461,7 @@ margin_bottom = 380.0
 icon_texture_l1 = ExtResource( 13 )
 icon_texture_l2 = ExtResource( 18 )
 
-[node name="lab_p4" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_p4" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0
@@ -464,7 +471,7 @@ margin_bottom = 380.0
 icon_texture_l1 = ExtResource( 1 )
 icon_texture_l2 = ExtResource( 54 )
 
-[node name="lab_p5" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_p5" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 456.0
@@ -474,14 +481,14 @@ margin_bottom = 380.0
 icon_texture_l1 = ExtResource( 53 )
 icon_texture_l2 = ExtResource( 55 )
 
-[node name="placeholder9" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="placeholder9" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 380.0
 margin_right = 76.0
 margin_bottom = 456.0
 
-[node name="placeholder10" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="placeholder10" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
@@ -489,7 +496,7 @@ margin_top = 380.0
 margin_right = 152.0
 margin_bottom = 456.0
 
-[node name="lab_z1" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_z1" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 152.0
@@ -499,7 +506,7 @@ margin_bottom = 456.0
 icon_texture_l1 = ExtResource( 20 )
 icon_texture_l2 = ExtResource( 19 )
 
-[node name="lab_z2" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_z2" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
@@ -509,7 +516,7 @@ margin_bottom = 456.0
 icon_texture_l1 = ExtResource( 43 )
 icon_texture_l2 = ExtResource( 26 )
 
-[node name="lab_z3" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_z3" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
@@ -519,7 +526,7 @@ margin_bottom = 456.0
 icon_texture_l1 = ExtResource( 39 )
 icon_texture_l2 = ExtResource( 38 )
 
-[node name="lab_z4" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_z4" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0
@@ -529,7 +536,7 @@ margin_bottom = 456.0
 icon_texture_l1 = ExtResource( 41 )
 icon_texture_l2 = ExtResource( 42 )
 
-[node name="lab_z5" parent="GridContainer" instance=ExtResource( 46 )]
+[node name="lab_z5" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 456.0

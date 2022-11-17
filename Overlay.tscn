@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://tech panel/TechPanel_Terran.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CutscenePlayer.tscn" type="PackedScene" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://BadgesSmall.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Effects.gd" type="Script" id=26]
 [ext_resource path="res://GameIntro.gd" type="Script" id=27]
+[ext_resource path="res://SkillIconsTable.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Personal.gd" type="Script" id=29]
 [ext_resource path="res://fonts/michroma.tres" type="DynamicFont" id=48]
 [ext_resource path="res://GGVote.gd" type="Script" id=49]
 [ext_resource path="res://campaign scenes/armory  shop/ArmoryShop.tscn" type="PackedScene" id=50]
@@ -69,8 +71,6 @@ bg_color = Color( 0.756863, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="VideoStreamWebm" id=20]
 
 [sub_resource type="DynamicFontData" id=8]
 font_path = "res://Michroma.ttf"
@@ -197,10 +197,10 @@ anchor_right = 1.0
 margin_top = 30.0
 margin_right = 0.00012207
 margin_bottom = 174.0
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 0.368627 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 2 )
 text = "Victory"
 align = 1
 valign = 1
@@ -254,8 +254,8 @@ __meta__ = {
 margin_right = 128.0
 margin_bottom = 150.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.976471, 0.568627, 0.239216, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "MVP:"
 valign = 1
 
@@ -276,11 +276,11 @@ rect_min_size = Vector2( 52, 52 )
 
 [node name="MVPName" type="Label" parent="Leaderboards/Screen1/MVP"]
 margin_left = 200.0
-margin_right = 818.0
+margin_right = 817.0
 margin_bottom = 150.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "naturalhomemadenutella"
 valign = 1
 
@@ -319,8 +319,8 @@ margin_bottom = 150.0
 size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="Leaderboards/Screen1/MVP"]
-margin_left = 822.0
-margin_right = 1838.0
+margin_left = 821.0
+margin_right = 1837.0
 margin_bottom = 150.0
 
 [node name="Badges" type="HBoxContainer" parent="Leaderboards/Screen1/MVP/CenterContainer"]
@@ -586,34 +586,34 @@ __meta__ = {
 }
 
 [node name="Leaderboard1" parent="Leaderboards/Screen1/LB_Grid" instance=ExtResource( 17 )]
-margin_right = 639.0
+margin_right = 640.0
 margin_bottom = 415.0
 
 [node name="Leaderboard2" parent="Leaderboards/Screen1/LB_Grid" instance=ExtResource( 17 )]
-margin_left = 640.0
-margin_right = 1279.0
+margin_left = 641.0
+margin_right = 1280.0
 margin_bottom = 415.0
 
 [node name="Leaderboard3" parent="Leaderboards/Screen1/LB_Grid" instance=ExtResource( 17 )]
-margin_left = 1280.0
-margin_right = 1919.0
+margin_left = 1281.0
+margin_right = 1920.0
 margin_bottom = 415.0
 
 [node name="Leaderboard4" parent="Leaderboards/Screen1/LB_Grid" instance=ExtResource( 17 )]
 margin_top = 416.0
-margin_right = 639.0
+margin_right = 640.0
 margin_bottom = 831.0
 
 [node name="Leaderboard5" parent="Leaderboards/Screen1/LB_Grid" instance=ExtResource( 17 )]
-margin_left = 640.0
+margin_left = 641.0
 margin_top = 416.0
-margin_right = 1279.0
+margin_right = 1280.0
 margin_bottom = 831.0
 
 [node name="Leaderboard6" parent="Leaderboards/Screen1/LB_Grid" instance=ExtResource( 17 )]
-margin_left = 1280.0
+margin_left = 1281.0
 margin_top = 416.0
-margin_right = 1919.0
+margin_right = 1920.0
 margin_bottom = 831.0
 
 [node name="Screen2" type="Control" parent="Leaderboards"]
@@ -636,10 +636,10 @@ __meta__ = {
 anchor_right = 1.0
 margin_right = 0.00012207
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 0.368627 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 5 )
 text = "Leaderboards: XP"
 align = 1
 valign = 1
@@ -722,12 +722,11 @@ __meta__ = {
 }
 
 [node name="CutscenePlayer" parent="." instance=ExtResource( 2 )]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
-stream = SubResource( 20 )
+volume_db = 10.0
 autoplay = false
 script = ExtResource( 3 )
 
@@ -804,8 +803,8 @@ __meta__ = {
 [node name="Line1" type="Label" parent="GameStats/GameIntro/Container"]
 anchor_right = 1.0
 margin_bottom = 50.0
-custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.913725, 0.913725, 0.913725, 1 )
+custom_fonts/font = SubResource( 11 )
 text = "Your opponent is"
 align = 1
 valign = 1
@@ -814,11 +813,11 @@ valign = 1
 anchor_right = 1.0
 margin_top = 50.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.478431, 0.407843, 0.407843, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 12 )
 text = "naturalhomemadenutella"
 align = 1
 valign = 1
@@ -830,8 +829,8 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 170.0
 margin_bottom = 220.0
-custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.913725, 0.913725, 0.913725, 1 )
+custom_fonts/font = SubResource( 13 )
 text = "Win the game to progress to higher difficulty"
 align = 1
 valign = 1
@@ -867,9 +866,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="GameStats/CreepingLine"]
 margin_right = 569.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 16 )
 custom_constants/shadow_offset_x = 0
 custom_constants/line_spacing = 0
+custom_fonts/font = SubResource( 16 )
 text = "This is supposed to be a creeping line that scrolls itself to the left and then wraps around"
 script = ExtResource( 5 )
 __meta__ = {
@@ -900,15 +899,15 @@ margin_top = 932.0
 margin_right = 1030.0
 margin_bottom = 993.0
 value = "Easy"
-label = "ai level"
+label = "AI Level"
 
 [node name="RecentSub" type="Label" parent="GameStats"]
 margin_left = 380.166
 margin_top = 989.947
 margin_right = 528.166
 margin_bottom = 1019.95
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.419608, 0.768627, 0.964706, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "recent sub"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -919,8 +918,8 @@ margin_left = 379.779
 margin_top = 1020.94
 margin_right = 601.779
 margin_bottom = 1050.94
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.419608, 0.768627, 0.964706, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "recent donations"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1113,9 +1112,18 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Personal" type="Control" parent="Effects"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 29 )
+
+[node name="GridContainer" parent="." instance=ExtResource( 28 )]
+visible = false
+
 [connection signal="timeout" from="Leaderboards/Screen1_Wait" to="Leaderboards" method="_on_screen1_timeout"]
 [connection signal="timeout" from="Leaderboards/MVP_Wait" to="Leaderboards" method="_on_MVP_timeout"]
 [connection signal="timeout" from="Leaderboards/MVP_NextBadge" to="Leaderboards" method="_on_MVP_NextBadge"]
-[connection signal="finished" from="CutscenePlayer" to="." method="_on_cutscene_finished"]
+[connection signal="finished" from="CutscenePlayer" to="CutscenePlayer" method="_on_CutscenePlayer_finished"]
 [connection signal="timeout" from="GameStats/SecondCounter" to="GameStats" method="_on_Second"]
 [connection signal="timeout" from="PingTimeout" to="." method="_on_PingTimeout"]
