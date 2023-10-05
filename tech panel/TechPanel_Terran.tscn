@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://InGameBackgroundT.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icons/terran/research/btn-ability-terran-yamatogun-color.dds" type="Texture" id=2]
@@ -11,11 +11,13 @@
 [ext_resource path="res://icons/btn-ability-terran-armnuke.dds" type="Texture" id=9]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleplatinglevel2.dds" type="Texture" id=10]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryarmorlevel2.dds" type="Texture" id=11]
-[ext_resource path="res://icons/terran/research/btn-upgrade-terran-highcapacityfueltanks.dds" type="Texture" id=12]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-caduceusreactor.dds" type="Texture" id=12]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-hurricane-thrusters.dds" type="Texture" id=13]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleplatinglevel1.dds" type="Texture" id=14]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-shipweaponslevel2.dds" type="Texture" id=15]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleweaponslevel3.dds" type="Texture" id=16]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-vehicleweaponslevel1.dds" type="Texture" id=17]
+[ext_resource path="res://icons/terran/research/btn-upgrade-terran-interferencematrix.dds" type="Texture" id=18]
 [ext_resource path="res://icons/terran/research/btn-upgrade-terran-hyperflightrotors.dds" type="Texture" id=19]
 [ext_resource path="res://icons/terran/research/btn-upgrade-terran-advanceballistics.dds" type="Texture" id=20]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-infantryweaponslevel1.dds" type="Texture" id=21]
@@ -39,7 +41,6 @@
 [ext_resource path="res://icons/terran/research/btn-ability-terran-stimpack-color.dds" type="Texture" id=39]
 [ext_resource path="res://icons/terran/upgrades/btn-upgrade-terran-shipweaponslevel0.dds" type="Texture" id=40]
 [ext_resource path="res://icons/terran/research/btn-techupgrade-terran-combatshield-color.dds" type="Texture" id=41]
-[ext_resource path="res://icons/terran/research/btn-upgrade-terran-magfieldaccelerator.dds" type="Texture" id=42]
 [ext_resource path="res://icons/terran/research/btn-upgrade-terran-infernalpreigniter.dds" type="Texture" id=43]
 [ext_resource path="res://icons/terran/research/btn-upgrade-terran-transformationservos.dds" type="Texture" id=44]
 [ext_resource path="res://icons/terran/research/btn-upgrade-terran-researchdrillingclaws.dds" type="Texture" id=45]
@@ -186,13 +187,14 @@ margin_right = 304.0
 margin_bottom = 152.0
 icon_texture = ExtResource( 43 )
 
-[node name="corvid" parent="GCC/GridContainer" instance=ExtResource( 46 )]
+[node name="interference" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
 margin_top = 76.0
 margin_right = 380.0
 margin_bottom = 152.0
+icon_texture = ExtResource( 18 )
 
 [node name="yamato" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
@@ -243,14 +245,14 @@ margin_right = 228.0
 margin_bottom = 228.0
 icon_texture = ExtResource( 39 )
 
-[node name="magfield" parent="GCC/GridContainer" instance=ExtResource( 46 )]
+[node name="hurricane" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 228.0
 margin_top = 152.0
 margin_right = 304.0
 margin_bottom = 228.0
-icon_texture = ExtResource( 42 )
+icon_texture = ExtResource( 13 )
 
 [node name="rotors" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
@@ -326,7 +328,7 @@ margin_right = 380.0
 margin_bottom = 304.0
 icon_texture = ExtResource( 7 )
 
-[node name="reignition" parent="GCC/GridContainer" instance=ExtResource( 46 )]
+[node name="caduceus" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 380.0

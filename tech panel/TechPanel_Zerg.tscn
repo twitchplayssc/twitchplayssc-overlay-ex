@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://InGameBackgroundT.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icons/zerg/btn-upgrade-zerg-airattacks-level1.dds" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://icons/zerg/btn-upgrade-zerg-airattacks-level3.dds" type="Texture" id=9]
 [ext_resource path="res://icons/zerg/btn-unit-zerg-larvaex3.dds" type="Texture" id=10]
 [ext_resource path="res://icons/zerg/btn-upgrade-zerg-adaptivetalons.dds" type="Texture" id=11]
-[ext_resource path="res://icons/zerg/btn-upgrade-zerg-pathogenglands.dds" type="Texture" id=12]
 [ext_resource path="res://icons/zerg/btn-building-zerg-lurkerden.dds" type="Texture" id=13]
 [ext_resource path="res://icons/zerg/btn-upgrade-zerg-seismicspines.dds" type="Texture" id=14]
 [ext_resource path="res://icons/zerg/btn-building-zerg-hydraliskden.dds" type="Texture" id=15]
@@ -75,9 +74,6 @@ margin_left = 1547.0
 margin_top = 718.0
 margin_right = 1912.0
 margin_bottom = 1019.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
@@ -210,7 +206,6 @@ margin_left = 380.0
 margin_top = 76.0
 margin_right = 456.0
 margin_bottom = 152.0
-icon_texture = ExtResource( 12 )
 
 [node name="ultra_armor" parent="GCC/GridContainer" instance=ExtResource( 46 )]
 anchor_right = 0.0
