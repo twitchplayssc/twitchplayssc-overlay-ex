@@ -728,6 +728,7 @@ margin_right = 0.0
 margin_bottom = 0.0
 volume_db = 10.0
 autoplay = false
+buffering_msec = 1000
 script = ExtResource( 3 )
 
 [node name="ArmoryShop" parent="." instance=ExtResource( 50 )]
