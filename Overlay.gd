@@ -93,7 +93,8 @@ func incoming_message(id):
 			$NoClientWarning.hide()
 			$GameStats.hide()
 			$Leaderboards.update_state(json)
-			$Leaderboards.show()			
+			$Leaderboards.show()
+			$Tutorial.deactivate()	
 			
 	if json.has("stats"):
 		$GameStats.update_state(json["stats"])
@@ -135,6 +136,12 @@ func incoming_message(id):
 	
 	if json.has("micro"):
 		$TechPanel/Background.micro(json["micro"])
+		
+	if json.has("tutorial"):
+		$Tutorial.activate(json["tutorial"])
+		
+	if json.has("tutorial_off"):
+		$Tutorial.deactivate()
 	
 	if json.has("upgrades"):
 		var upgrades = json["upgrades"]		
