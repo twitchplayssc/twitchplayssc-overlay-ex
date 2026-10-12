@@ -20,5 +20,5 @@ var ys = [-5 ,-375, -742]
 
 func _on_RotateTPRace_timeout():
 	i = (i+1)%3
-	$GCC/GridContainer.rect_position.y = ys[i]
+	$GCC/GridContainer.position.y = ys[i]
 	pass # Replace with function body.

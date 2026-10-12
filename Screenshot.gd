@@ -16,8 +16,7 @@ var tmp = 0.0
 func _process(delta):
 	tmp+=delta
 	if tmp > 5.0:
-		var image = get_viewport().get_texture().get_data()
-		image.flip_y()
+		var image = get_viewport().get_texture().get_image()
 		image.save_png("scene_screenshot.png")
 		tmp = -500.0
 	pass

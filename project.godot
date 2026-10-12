@@ -6,39 +6,28 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[  ]
-_global_script_class_icons={
-}
+config_version=5
 
 [application]
 
 config/name="TPSCOverlayExtended"
 run/main_scene="res://Overlay.tscn"
+config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/show_image=false
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/resizable=false
 window/size/borderless=true
+window/size/transparent=true
 window/per_pixel_transparency/allowed=true
-window/per_pixel_transparency/enabled=true
 
 [rendering]
 
-quality/intended_usage/framebuffer_allocation=0
-quality/intended_usage/framebuffer_allocation.mobile=0
-quality/directional_shadow/size=256
-quality/directional_shadow/size.mobile=256
-quality/shadow_atlas/size=256
-quality/shadow_atlas/size.mobile=256
-quality/shadow_atlas/quadrant_0_subdiv=0
-quality/shadow_atlas/quadrant_1_subdiv=0
-quality/shadow_atlas/quadrant_2_subdiv=0
-quality/shadow_atlas/quadrant_3_subdiv=0
-quality/shadows/filter_mode=0
-quality/depth/hdr=false
-environment/default_environment="res://default_env.tres"
+renderer/rendering_method="mobile"
+rendering_device/driver.windows="d3d12"
+viewport/transparent_background=true

@@ -1,12 +1,6 @@
-[gd_resource type="DynamicFont" load_steps=2 format=2]
+[gd_resource type="FontVariation" format=3]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://fonts/Michroma.ttf"
+[ext_resource type="FontFile" path="res://fonts/Michroma.ttf" id="1"]
 
 [resource]
-size = 30
-outline_size = 3
-outline_color = Color( 0, 0.00392157, 0.00784314, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 1 )
+base_font = ExtResource("1")

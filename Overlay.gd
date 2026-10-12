@@ -1,7 +1,10 @@
 extends Control
 
-var server = WebSocketServer.new()
-var client_id = 0
+# Godot 4 has no WebSocketServer: the overlay listens with a TCPServer and upgrades the connection it
+# accepts to a WebSocketPeer. The bot is its only client, so a new connection replaces the old one.
+var server = TCPServer.new()
+var peer = null
+var peer_open = false
 
 var compact_state = false
 var current_race = ""
@@ -12,35 +15,31 @@ const TechPanel_Zerg = preload("res://tech panel/TechPanel_Zerg.tscn")
 const TechPanel_WoL = preload("res://tech panel/TechPanel_WoL.tscn")
 const TechPanel_Mixed = preload("res://tech panel/TechPanel_Generic.tscn")
 
-func incoming_connection(_id, _proto):
-	client_id = _id
+func incoming_connection():
 	for node in $TechPanel/GCC/GridContainer.get_children():
 		node.gray_out()
 	disable_overlay()
 	show()
 
-func disconnection(_id, _wtf):
+func disconnection():
 	$NoClientWarning.show()
 	for node in $TechPanel/GCC/GridContainer.get_children():
 		node.highlight()
 		node.in_progress()
 
-func incoming_message(id):
-	var pkt = server.get_peer(id).get_packet()
+func incoming_message(pkt):
 	var s = pkt.get_string_from_utf8()
-	
+
 	$PingTimeout.start()
-	
+
 	if s=="ping" or s=="":
 		return
-	
-	var json_parse = JSON.parse(s.substr(5))
-	var json
-	if json_parse.error == OK:
-		json = json_parse.result
-	else:
+
+	var json = JSON.parse_string(s.substr(5))
+	if typeof(json) != TYPE_DICTIONARY:
 		print("parsing error")
-	
+		return
+
 	if json.has("mode"):
 		if json["mode"]=="compact":
 			if not compact_state:
@@ -53,35 +52,35 @@ func incoming_message(id):
 				if current_race!="terran":
 					current_race = "terran"
 					remove_child($TechPanel)
-					add_child(TechPanel_Terran.instance())
+					add_child(TechPanel_Terran.instantiate())
 					move_child($TechPanel,0)
 					reset_tech()
 			if json.has("race") and json["race"]=="terran_wol":
 				if current_race!="terran_wol":
 					current_race = "terran_wol"
 					remove_child($TechPanel)
-					add_child(TechPanel_WoL.instance())
+					add_child(TechPanel_WoL.instantiate())
 					move_child($TechPanel,0)
 					reset_tech()
 			if json.has("race") and json["race"]=="protoss":
 				if current_race!="protoss":
 					current_race = "protoss"
 					remove_child($TechPanel)
-					add_child(TechPanel_Protoss.instance())
+					add_child(TechPanel_Protoss.instantiate())
 					move_child($TechPanel,0)
 					reset_tech()
 			if json.has("race") and json["race"]=="zerg":
 				if current_race!="zerg":
 					current_race = "zerg"
 					remove_child($TechPanel)
-					add_child(TechPanel_Zerg.instance())
+					add_child(TechPanel_Zerg.instantiate())
 					move_child($TechPanel,0)
 					reset_tech()
 			if json.has("race") and json["race"]=="mixed":
 				if current_race!="mixed":
 					current_race = "mixed"
 					remove_child($TechPanel)
-					add_child(TechPanel_Mixed.instance())
+					add_child(TechPanel_Mixed.instantiate())
 					move_child($TechPanel,0)
 					reset_tech()
 			enable_overlay()
@@ -101,6 +100,7 @@ func incoming_message(id):
 	
 	if json.has("gameIntro"):
 		$GameStats/GameIntro.update_state(json["gameIntro"])
+		$CutscenePlayer.stop()
 		$CutscenePlayer.hide()
 		
 	if json.has("cine_path"):
@@ -255,17 +255,44 @@ func incoming_message(id):
 func _ready():
 	#$CutscenePlayer.play_cutscene("WOL_R01_outro")
 	
-	server.connect("client_connected",self,"incoming_connection")
-	server.connect("client_disconnected",self,"disconnection")	
-	server.connect("data_received",self,"incoming_message")
-	var _err = server.listen(14228)
-	get_tree().get_root().set_transparent_background(true)
-	OS.window_per_pixel_transparency_enabled = true
+	listen()
+	# The window's transparency is in the project settings; the root viewport must clear to
+	# transparent as well, or the game does not show through.
+	get_tree().root.transparent_bg = true
 	$PingTimeout.start()
-	
+
+func listen():
+	if peer != null:
+		peer.close()
+		peer = null
+	peer_open = false
+	server.stop()
+	var _err = server.listen(14228)
 
 func _process(_delta):
-	server.poll()
+	if server.is_connection_available():
+		if peer != null:
+			peer.close()
+		peer = WebSocketPeer.new()
+		# The leaderboards come in one message, larger than the default buffer.
+		peer.inbound_buffer_size = 1 << 20
+		peer.accept_stream(server.take_connection())
+		peer_open = false
+	if peer == null:
+		return
+	peer.poll()
+	var state = peer.get_ready_state()
+	if state == WebSocketPeer.STATE_OPEN:
+		if not peer_open:
+			peer_open = true
+			incoming_connection()
+		while peer != null and peer.get_available_packet_count() > 0:
+			incoming_message(peer.get_packet())
+	elif state == WebSocketPeer.STATE_CLOSED:
+		peer = null
+		if peer_open:
+			peer_open = false
+			disconnection()
 
 func reset_tech():
 	for node in $TechPanel/GCC/GridContainer.get_children():
@@ -290,10 +317,6 @@ func disable_overlay():
 
 func _on_PingTimeout():
 	print("disconnected")
-	server = WebSocketServer.new()
-	server.connect("client_connected",self,"incoming_connection")
-	server.connect("client_disconnected",self,"disconnection")	
-	server.connect("data_received",self,"incoming_message")
-	var _err = server.listen(14228)
+	listen()
 	$PingTimeout.start()
 

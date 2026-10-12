@@ -55,3 +55,7 @@ Thumbs.db
 */.export/
 .export/
 
+
+.godot/
+*.ogv
+*.ogv.uid

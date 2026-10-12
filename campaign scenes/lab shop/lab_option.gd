@@ -3,7 +3,7 @@ extends Panel
 var style = StyleBoxFlat.new()
 
 func _ready():
-	add_stylebox_override("panel", style)
+	add_theme_stylebox_override("panel", style)
 	pass # Replace with function body.
 
 func set_color(col):

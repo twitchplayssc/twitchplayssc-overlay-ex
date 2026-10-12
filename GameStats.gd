@@ -43,5 +43,5 @@ func _on_Second():
 			timer_minutes=0
 			timer_hours-=1
 	if get_parent().has_node("TechPanel/Timer"):
-		get_parent().get_node("TechPanel/Timer").text = String(timer_hours)+":"+String(timer_minutes+100).right(1)+":"+String(timer_seconds+100).right(1)
+		get_parent().get_node("TechPanel/Timer").text = str(timer_hours)+":"+str(timer_minutes+100).right(2)+":"+str(timer_seconds+100).right(2)
 	

@@ -16,8 +16,8 @@ func fadeIn():
 	fade_in = true
 	fade_out = false
 	self.local_timer = 0.0
-	self.margin_left = 0
-	self.margin_right = 0
+	self.offset_left = 0
+	self.offset_right = 0
 	self.modulate.a = 1.0
 
 func fadeOut():
@@ -34,7 +34,7 @@ func update_state(json):
 	tip_text = tip_text.replace("<span class='command'>", "[color=#22DD22]")
 	tip_text = tip_text.replace("<span class='unit-type'>", "[color=#DD8822]")
 	
-	$Container/Tip.bbcode_text = tip_text
+	$Container/Tip.text = tip_text
 	if json["fadeOut"]:
 		fadeOut()
 	else:
@@ -48,10 +48,10 @@ func _process(delta):
 		local_timer += delta
 		if local_timer > 15.0:
 			fadeOut()
-		if self.margin_left >= -500:
-			self.margin_left -= delta*speed
-		if self.margin_right <= 500:
-			self.margin_right += delta*speed
+		if self.offset_left >= -500:
+			self.offset_left -= delta*speed
+		if self.offset_right <= 500:
+			self.offset_right += delta*speed
 	if fade_out:
 		var speed = 0.5
 		if self.modulate.a>0:

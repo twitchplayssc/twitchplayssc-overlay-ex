@@ -1,130 +1,136 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene format=3]
 
-[ext_resource path="res://fonts/leaderboard_lucia.tres" type="DynamicFont" id=1]
-[ext_resource path="res://LeaderboardEntryGlobal.gd" type="Script" id=2]
-[ext_resource path="res://BadgesSmall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://BadgesLarge.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icons/badges/32px/nutella.png" type="Texture" id=17]
-[ext_resource path="res://icons/badges/32px/scooter_elite.png" type="Texture" id=18]
-[ext_resource path="res://icons/badges/32px/survival.png" type="Texture" id=20]
-[ext_resource path="res://LeagueIcon.tscn" type="PackedScene" id=32]
+[ext_resource type="FontVariation" path="res://fonts/leaderboard_lucia.tres" id="1"]
+[ext_resource type="Script" path="res://LeaderboardEntryGlobal.gd" id="2"]
+[ext_resource type="PackedScene" path="res://BadgesSmall.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://BadgesLarge.tscn" id="4"]
+[ext_resource type="Texture2D" path="res://icons/badges/32px/nutella.png" id="17"]
+[ext_resource type="Texture2D" path="res://icons/badges/32px/scooter_elite.png" id="18"]
+[ext_resource type="Texture2D" path="res://icons/badges/32px/survival.png" id="20"]
+[ext_resource type="PackedScene" path="res://LeagueIcon.tscn" id="32"]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id="1"]
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0.0980392, 0.0901961, 1 )
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0, 0.0980392, 0.0901961, 1)
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0, 0.396078, 0.364706, 1 )
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0, 0.396078, 0.364706, 1)
 
 [node name="LeaderboardEntry" type="PanelContainer"]
-margin_top = 47.0
-margin_right = 721.0
-margin_bottom = 81.0
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+offset_top = 47.0
+offset_right = 721.0
+offset_bottom = 81.0
+theme_override_styles/panel = SubResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BG_Default" type="Panel" parent="."]
-margin_right = 721.0
-margin_bottom = 34.0
-custom_styles/panel = SubResource( 2 )
+offset_right = 721.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("2")
 
 [node name="BG_Highlight" type="Panel" parent="."]
-margin_right = 721.0
-margin_bottom = 34.0
-custom_styles/panel = SubResource( 3 )
+offset_right = 721.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 721.0
-margin_bottom = 34.0
-custom_constants/separation = -3
+offset_right = 721.0
+offset_bottom = 34.0
+theme_override_constants/separation = -3
 
 [node name="Number" type="Label" parent="HBoxContainer"]
-margin_top = 6.0
-margin_right = 40.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 40, 0 )
-rect_clip_content = true
+offset_top = 6.0
+offset_right = 40.0
+offset_bottom = 27.0
+custom_minimum_size = Vector2(40, 0)
+clip_contents = true
 size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.729412, 0.980392, 1, 1 )
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.729412, 0.980392, 1, 1)
 text = "10"
-align = 1
+horizontal_alignment = 1
 clip_text = true
 
 [node name="League" type="Control" parent="HBoxContainer"]
-margin_left = 37.0
-margin_right = 71.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+offset_left = 37.0
+offset_right = 71.0
+offset_bottom = 34.0
+custom_minimum_size = Vector2(34, 34)
 size_flags_vertical = 5
 
-[node name="Icon" parent="HBoxContainer/League" instance=ExtResource( 32 )]
-rect_scale = Vector2( 0.3, 0.3 )
+[node name="Icon" parent="HBoxContainer/League" instance=ExtResource("32")]
+scale = Vector2(0.3, 0.3)
 
 [node name="PlayerNameBar" type="Control" parent="HBoxContainer"]
-margin_left = 68.0
-margin_right = 535.0
-margin_bottom = 34.0
-rect_clip_content = true
+offset_left = 68.0
+offset_right = 535.0
+offset_bottom = 34.0
+clip_contents = true
 size_flags_horizontal = 3
 
 [node name="PlayerName" type="Label" parent="HBoxContainer/PlayerNameBar"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 294.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 100, 0 )
-rect_clip_content = true
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 294.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2(100, 0)
+clip_contents = true
 size_flags_horizontal = 2
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.729412, 0.980392, 1, 1 )
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.729412, 0.980392, 1, 1)
 text = "naturalhomemadenutella"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Badges" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 532.0
-margin_right = 624.0
-margin_bottom = 34.0
-custom_constants/separation = -2
+offset_left = 532.0
+offset_right = 624.0
+offset_bottom = 34.0
+theme_override_constants/separation = -2
 
 [node name="nutella2" type="TextureRect" parent="HBoxContainer/Badges"]
-margin_right = 32.0
-margin_bottom = 34.0
-texture = ExtResource( 17 )
+offset_right = 32.0
+offset_bottom = 34.0
+texture = ExtResource("17")
+stretch_mode = 2
 
 [node name="scooter_elite2" type="TextureRect" parent="HBoxContainer/Badges"]
-margin_left = 30.0
-margin_right = 62.0
-margin_bottom = 34.0
-texture = ExtResource( 18 )
+offset_left = 30.0
+offset_right = 62.0
+offset_bottom = 34.0
+texture = ExtResource("18")
+stretch_mode = 2
 
 [node name="survival2" type="TextureRect" parent="HBoxContainer/Badges"]
-margin_left = 60.0
-margin_right = 92.0
-margin_bottom = 34.0
-texture = ExtResource( 20 )
+offset_left = 60.0
+offset_right = 92.0
+offset_bottom = 34.0
+texture = ExtResource("20")
+stretch_mode = 2
 
 [node name="Value" type="Label" parent="HBoxContainer"]
-margin_left = 621.0
-margin_top = 6.0
-margin_right = 721.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 100, 0 )
-rect_clip_content = true
+offset_left = 621.0
+offset_top = 6.0
+offset_right = 721.0
+offset_bottom = 27.0
+custom_minimum_size = Vector2(100, 0)
+clip_contents = true
 size_flags_horizontal = 12
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.729412, 0.980392, 1, 1 )
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.729412, 0.980392, 1, 1)
 text = "999999"
-align = 1
+horizontal_alignment = 1
 clip_text = true
 
-[node name="BadgesSmall" parent="." instance=ExtResource( 3 )]
+[node name="BadgesSmall" parent="." instance=ExtResource("3")]
 visible = false
 
-[node name="BadgesLarge" parent="." instance=ExtResource( 4 )]
+[node name="BadgesLarge" parent="." instance=ExtResource("4")]

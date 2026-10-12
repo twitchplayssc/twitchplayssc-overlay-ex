@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3]
 
-[ext_resource path="res://overlay toolbox alt long.png" type="Texture" id=1]
-[ext_resource path="res://InGameBackground.gd" type="Script" id=2]
+[ext_resource type="Texture2D" path="res://overlay toolbox alt long.png" id="1"]
+[ext_resource type="Script" path="res://InGameBackground.gd" id="2"]
 
 [node name="Background" type="Control"]
-margin_left = -2000.0
-margin_top = -52.0
-margin_right = 376.0
-margin_bottom = 366.0
-rect_clip_content = true
-script = ExtResource( 2 )
+offset_left = -2000.0
+offset_top = -52.0
+offset_right = 376.0
+offset_bottom = 366.0
+clip_contents = true
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Minimap" type="Control" parent="."]
-margin_left = 456.0
-margin_right = 2374.0
-margin_bottom = 418.0
-rect_clip_content = true
+offset_left = 456.0
+offset_right = 2374.0
+offset_bottom = 418.0
+clip_contents = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -28,20 +28,21 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1920.0
-margin_top = -411.0
-texture = ExtResource( 1 )
+offset_left = -1920.0
+offset_top = -411.0
+texture = ExtResource("1")
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+stretch_mode = 2
 
 [node name="Center" type="Control" parent="."]
-margin_left = 815.0
-margin_top = 201.0
-margin_right = 2376.0
-margin_bottom = 418.0
-rect_clip_content = true
+offset_left = 815.0
+offset_top = 201.0
+offset_right = 2376.0
+offset_bottom = 418.0
+clip_contents = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,19 +52,20 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1920.0
-margin_top = -411.0
-texture = ExtResource( 1 )
+offset_left = -1920.0
+offset_top = -411.0
+texture = ExtResource("1")
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+stretch_mode = 2
 
 [node name="Tech" type="Control" parent="."]
-margin_left = 1992.0
-margin_right = 2376.0
-margin_bottom = 418.0
-rect_clip_content = true
+offset_left = 1992.0
+offset_right = 2376.0
+offset_bottom = 418.0
+clip_contents = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,10 +75,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1920.0
-margin_top = -411.0
-texture = ExtResource( 1 )
+offset_left = -1920.0
+offset_top = -411.0
+texture = ExtResource("1")
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+stretch_mode = 2

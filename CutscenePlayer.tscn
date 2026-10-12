@@ -1,9 +1,10 @@
-[gd_scene format=2]
+[gd_scene format=3]
 
-[node name="CutscenePlayer" type="VideoPlayer"]
-margin_right = 1718.0
-margin_bottom = 980.0
+[node name="CutscenePlayer" type="VideoStreamPlayer"]
+offset_right = 1718.0
+offset_bottom = 980.0
 autoplay = true
+expand = true
 buffering_msec = 510
 __meta__ = {
 "_edit_use_anchors_": false

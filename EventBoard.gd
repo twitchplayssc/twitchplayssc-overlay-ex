@@ -6,7 +6,7 @@ func _ready():
 	pass
 
 func push_event(text):
-	var node = EventLine.instance() 
+	var node = EventLine.instantiate() 
 	node.text = text
 	add_child(node)
 	if get_child_count() > 7:

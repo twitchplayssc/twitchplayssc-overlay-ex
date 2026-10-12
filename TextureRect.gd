@@ -1,12 +1,12 @@
 extends TextureRect
 
-export (Texture) var TBronze
-export (Texture) var TSilver
-export (Texture) var TGold
-export (Texture) var TPlatinum
-export (Texture) var TDiamond
-export (Texture) var TMaster
-export (Texture) var TGM
+@export var TBronze: Texture2D
+@export var TSilver: Texture2D
+@export var TGold: Texture2D
+@export var TPlatinum: Texture2D
+@export var TDiamond: Texture2D
+@export var TMaster: Texture2D
+@export var TGM: Texture2D
 
 func update_state(league):
 	match league:

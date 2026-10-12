@@ -12,6 +12,6 @@ func _ready():
 
 func micro(state):
 	if state == "off":
-		$Minimap.margin_top = 0
+		$Minimap.offset_top = 0
 	if state == "on":
-		$Minimap.margin_top = 365
+		$Minimap.offset_top = 365

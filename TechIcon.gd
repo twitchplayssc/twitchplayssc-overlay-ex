@@ -1,9 +1,9 @@
 extends Control
 
-export (Texture) var icon_texture
-export (Texture) var icon_texture_l1
-export (Texture) var icon_texture_l2
-export (Texture) var icon_texture_l3
+@export var icon_texture: Texture2D
+@export var icon_texture_l1: Texture2D
+@export var icon_texture_l2: Texture2D
+@export var icon_texture_l3: Texture2D
 
 func _ready():
 	$Icon.texture = icon_texture
@@ -13,13 +13,13 @@ func _ready():
 	#gray_out()
 
 func gray_out():
-	$Icon.material.set_shader_param("grayout",1.0)
+	$Icon.material.set_shader_parameter("grayout",1.0)
 	$progress_particles.hide()
 	set_amount(0)
 	hide_star()
 
 func highlight():
-	$Icon.material.set_shader_param("grayout",0.0)
+	$Icon.material.set_shader_parameter("grayout",0.0)
 	$progress_particles.hide()	
 	
 func show_star():
@@ -29,7 +29,7 @@ func hide_star():
 	$star.hide()
 	
 func in_progress():
-	$Icon.material.set_shader_param("grayout",0.5)	
+	$Icon.material.set_shader_parameter("grayout",0.5)	
 	$progress_particles.show()
 	
 func set_amount(num):
@@ -37,10 +37,10 @@ func set_amount(num):
 		$counter_r.hide()
 	else:
 		$counter_r.show()
-		var txt = "[center]" + String(num) + "[/center]"
+		var txt = "[center]" + str(num) + "[/center]"
 		if num<100:
 			txt = "[b]"+txt+"[/b]"
-		$counter_r.bbcode_text = txt
+		$counter_r.text = txt
 
 func set_level(num):
 	match num:

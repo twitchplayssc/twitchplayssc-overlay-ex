@@ -1,102 +1,84 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene format=3]
 
-[ext_resource path="res://TechIcon.gd" type="Script" id=1]
-[ext_resource path="res://tech_icon.tres" type="Material" id=2]
-[ext_resource path="res://icons/black.bmp" type="Texture" id=3]
-[ext_resource path="res://fonts/michroma.tres" type="DynamicFont" id=4]
-[ext_resource path="res://icons/star.png" type="Texture" id=5]
+[ext_resource type="Script" path="res://TechIcon.gd" id="1"]
+[ext_resource type="Material" path="res://tech_icon.tres" id="2"]
+[ext_resource type="Texture2D" path="res://icons/black.bmp" id="3"]
+[ext_resource type="FontVariation" path="res://fonts/michroma.tres" id="4"]
+[ext_resource type="Texture2D" path="res://icons/star.png" id="5"]
+[ext_resource type="FontFile" path="res://Michroma.ttf" id="6"]
 
-[sub_resource type="Curve" id=1]
-max_value = 321.78
-_data = [ Vector2( 0, 0.455682 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
-
-[sub_resource type="ParticlesMaterial" id=3]
-trail_size_modifier = SubResource( 2 )
+[sub_resource type="ParticleProcessMaterial" id="3"]
 emission_shape = 1
 emission_sphere_radius = 38.0
-flag_disable_z = true
-direction = Vector3( 0, 0, 0 )
+direction = Vector3(0, 0, 0)
 spread = 180.0
-gravity = Vector3( 0, 0, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 4.0
-color = Color( 0.0745098, 0.901961, 0.968627, 0.721569 )
-hue_variation = 0.09
-hue_variation_random = 0.47
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+color = Color(0.0745098, 0.901961, 0.968627, 0.721569)
+hue_variation_min = 0.0477
+hue_variation_max = 0.09
 
-[sub_resource type="DynamicFontData" id=4]
-font_path = "res://Michroma.ttf"
+[sub_resource type="FontVariation" id="5"]
+base_font = ExtResource("6")
 
-[sub_resource type="DynamicFont" id=5]
-size = 36
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 4 )
-
-[sub_resource type="DynamicFontData" id=6]
-font_path = "res://Michroma.ttf"
-
-[sub_resource type="DynamicFont" id=7]
-size = 24
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 6 )
+[sub_resource type="FontVariation" id="7"]
+base_font = ExtResource("6")
 
 [node name="TechIcon" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 76, 76 )
-script = ExtResource( 1 )
+custom_minimum_size = Vector2(76, 76)
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Icon" type="TextureRect" parent="."]
-material = ExtResource( 2 )
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 3 )
+material = ExtResource("2")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3")
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+stretch_mode = 2
 
-[node name="progress_particles" type="Particles2D" parent="."]
-position = Vector2( 38, 38 )
+[node name="progress_particles" type="GPUParticles2D" parent="."]
+position = Vector2(38, 38)
 amount = 20
-process_material = SubResource( 3 )
+process_material = SubResource("3")
 
 [node name="counter" type="Label" parent="."]
 visible = false
-margin_right = 76.0
-margin_bottom = 76.0
-custom_fonts/font = ExtResource( 4 )
+offset_right = 76.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 30
+theme_override_constants/outline_size = 3
+theme_override_colors/font_outline_color = Color(0, 0.00392157, 0.00784314, 1)
 text = "99"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="counter_r" type="RichTextLabel" parent="."]
-margin_left = -4.0
-margin_top = 9.0
-margin_right = 80.0
-margin_bottom = 62.0
-custom_fonts/bold_font = SubResource( 5 )
-custom_fonts/normal_font = SubResource( 7 )
+offset_left = -4.0
+offset_top = 9.0
+offset_right = 80.0
+offset_bottom = 62.0
+theme_override_fonts/bold_font = SubResource("5")
+theme_override_font_sizes/bold_font_size = 36
+theme_override_constants/outline_size = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("7")
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-bbcode_text = "[b][center]99[/center][/b]"
-text = "99"
-fit_content_height = true
+text = "[b][center]99[/center][/b]"
+fit_content = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,12 +86,13 @@ __meta__ = {
 
 [node name="star" type="TextureRect" parent="."]
 visible = false
-margin_left = 48.8424
-margin_top = 2.09932
-margin_right = 1048.84
-margin_bottom = 1002.1
-rect_scale = Vector2( 0.025, 0.025 )
-texture = ExtResource( 5 )
+offset_left = 48.8424
+offset_top = 2.09932
+offset_right = 1048.84
+offset_bottom = 1002.1
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("5")
 __meta__ = {
 "_edit_use_anchors_": false
 }
+stretch_mode = 2

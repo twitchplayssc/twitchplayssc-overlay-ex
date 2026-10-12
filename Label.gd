@@ -13,6 +13,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rect_position.x -= 120.0*delta
-	if rect_position.x < -rect_size.x:
-		rect_position.x = rect_size.x
+	position.x -= 120.0*delta
+	if position.x < -size.x:
+		position.x = size.x

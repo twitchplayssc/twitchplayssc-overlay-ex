@@ -9,7 +9,7 @@ func reset():
 	hide()
 
 func update_state(num, player):
-	$HBoxContainer/Number.text = String(num)
+	$HBoxContainer/Number.text = str(num)
 	
 	if player.has("highlight") and player["highlight"] == "true":
 		$BG_Highlight.show()
@@ -22,9 +22,9 @@ func update_state(num, player):
 		max_badges-=1
 		if max_badges<=0:
 			break
-	update()
+	queue_redraw()
 	$HBoxContainer/League/Icon.update_state(player["league"])
 	$HBoxContainer/PlayerNameBar/PlayerName.text = player["name"]
-	$HBoxContainer/Value.text = String(player["value"])
+	$HBoxContainer/Value.text = str(player["value"])
 	
 	show()

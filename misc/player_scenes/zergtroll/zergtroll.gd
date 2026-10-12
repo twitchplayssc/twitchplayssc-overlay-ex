@@ -14,8 +14,8 @@ var dx = 250.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$ZT.rect_position.x += dx*delta
-	if $ZT.rect_position.x > -50.0:
+	$ZT.position.x += dx*delta
+	if $ZT.position.x > -50.0:
 		dx = -250
-	if $ZT.rect_position.x < -500.0:
+	if $ZT.position.x < -500.0:
 		queue_free()

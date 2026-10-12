@@ -1,7 +1,7 @@
 extends Control
 
-export (String) var shop_name
-export (Color) var panel_color
+@export var shop_name: String
+@export var panel_color: Color
 
 func _ready():
 	$Panel/ShopName.text = shop_name
