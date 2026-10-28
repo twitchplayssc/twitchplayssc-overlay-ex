@@ -37,9 +37,10 @@ func set_amount(num):
 		$counter_r.hide()
 	else:
 		$counter_r.show()
-		var txt = "[center]" + str(num) + "[/center]"
+		var txt = str(num)
 		if num<100:
 			txt = "[b]"+txt+"[/b]"
+		txt = "[center]" + txt + "[/center]"
 		$counter_r.text = txt
 
 func set_level(num):

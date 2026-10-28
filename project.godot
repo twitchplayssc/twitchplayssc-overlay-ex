@@ -31,3 +31,10 @@ window/per_pixel_transparency/allowed=true
 renderer/rendering_method="mobile"
 rendering_device/driver.windows="d3d12"
 viewport/transparent_background=true
+
+[editor]
+
+; The export would re-pack every scene as binary and reset what an instanced scene takes from its own
+; file (anchors and offsets of an instanced scene root), moving the overlay's panels. Text scenes are
+; exported as they are.
+export/convert_text_resources_to_binary=false
