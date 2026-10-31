@@ -138,7 +138,7 @@ func incoming_message(pkt):
 		$TechPanel/Background.micro(json["micro"])
 		
 	if json.has("tutorial"):
-		$Tutorial.activate(json["tutorial"])
+		$Tutorial.activate(json["tutorial"], json.get("tutorial_player", ""), float(json.get("tutorial_seconds", "0")))
 		
 	if json.has("tutorial_off"):
 		$Tutorial.deactivate()
