@@ -1,5 +1,7 @@
 extends PanelContainer
 
+const SubName = preload("res://SubName.gd")
+
 const SHOWN_X = 10.0
 const HIDDEN_X = -700.0
 const SLIDE_TIME = 0.35
@@ -9,8 +11,9 @@ const HIDE_GRACE = 2.0
 var slide = null
 var countdown = null
 
-func activate(text, player = "", seconds = 0.0):
+func activate(text, player = "", seconds = 0.0, player_sub = false):
 	$Box/Header.text = "Tip for " + player
+	SubName.apply($Box/Header, player_sub)
 	$Box/Header.visible = player != ""
 	$Box/Tip.text = text
 	show()

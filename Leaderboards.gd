@@ -1,5 +1,7 @@
 extends Control
 
+const SubName = preload("res://SubName.gd")
+
 var mvp_launched = false
 var mvp_badge = 0
 var mvp_current_badge = -1
@@ -35,6 +37,7 @@ func update_state(json):
 	$Screen1/MapInfo.text = game["map"] + " - " + game["opponent"] + " - " + game["duration"]
 	var mvp = json["mvp"]	
 	$Screen1/MVP/MVPName.text = mvp["player"]
+	SubName.apply($Screen1/MVP/MVPName, SubName.is_sub(mvp))
 	$Screen1/MVP/MVPLeague/Scale/LeagueIcon.update_state(mvp["league"])
 
 	for node in $Screen1/MVP/CenterContainer/Badges.get_children():

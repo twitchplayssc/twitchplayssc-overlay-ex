@@ -1,5 +1,7 @@
 extends Control
 
+const SubName = preload("res://SubName.gd")
+
 var active = false
 
 func _ready():
@@ -43,6 +45,7 @@ func update_state(num, player):
 	
 	$Panel/HBoxContainer/League/Icon.update_state(player["league"])
 	$Panel/HBoxContainer/PlayerNameBar/PlayerName.text = player["name"]
+	SubName.apply($Panel/HBoxContainer/PlayerNameBar/PlayerName, SubName.is_sub(player))
 	$Panel/HBoxContainer/Value.text = str(player["value"])
 	$Panel.position.y = -37
 	active = false

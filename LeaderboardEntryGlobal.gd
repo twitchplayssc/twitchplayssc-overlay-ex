@@ -1,5 +1,7 @@
 extends PanelContainer
 
+const SubName = preload("res://SubName.gd")
+
 func ready():
 	$BG_Highlight.hide()
 
@@ -25,6 +27,7 @@ func update_state(num, player):
 	queue_redraw()
 	$HBoxContainer/League/Icon.update_state(player["league"])
 	$HBoxContainer/PlayerNameBar/PlayerName.text = player["name"]
+	SubName.apply($HBoxContainer/PlayerNameBar/PlayerName, SubName.is_sub(player))
 	$HBoxContainer/Value.text = str(player["value"])
 	
 	show()

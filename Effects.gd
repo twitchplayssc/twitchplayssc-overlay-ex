@@ -21,3 +21,5 @@ func launch(effect):
 		$BadgesFall.launch(effect["param"])
 	if effect["type"]=="personal":
 		$Personal.launch(effect["param"])
+	if effect["type"]=="sub":
+		$SubBanner.launch(effect["param"])
