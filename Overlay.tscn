@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://Personal.gd" id="29"]
 [ext_resource type="FontVariation" path="res://tutorial_font.tres" id="30"]
 [ext_resource type="PackedScene" path="res://SubBanner.tscn" id="sub_banner"]
+[ext_resource type="Script" path="res://PromotionPopups.gd" id="promotion_popups"]
 [ext_resource type="Script" path="res://Tutorial.gd" id="31"]
 [ext_resource type="FontVariation" path="res://fonts/michroma.tres" id="48"]
 [ext_resource type="Script" path="res://GGVote.gd" id="49"]
@@ -623,7 +624,7 @@ theme_override_fonts/font = SubResource("5")
 theme_override_font_sizes/font_size = 40
 theme_override_constants/outline_size = 1
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.282353)
-text = "Leaderboards: XP"
+text = "Leaderboards: MMR"
 horizontal_alignment = 1
 vertical_alignment = 1
 __meta__ = {
@@ -1177,6 +1178,10 @@ offset_bottom = 40.0
 script = ExtResource("29")
 
 [node name="SubBanner" parent="Effects" instance=ExtResource("sub_banner")]
+
+[node name="PromotionPopups" type="Control" parent="Effects"]
+mouse_filter = 2
+script = ExtResource("promotion_popups")
 
 [node name="GridContainer" parent="." instance=ExtResource("28")]
 visible = false

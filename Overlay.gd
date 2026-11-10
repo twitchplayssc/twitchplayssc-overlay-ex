@@ -127,6 +127,9 @@ func incoming_message(pkt):
 	if json.has("mission_select"):
 		$MissionSelect.update_state(json["mission_select"])
 	
+	if json.has("promotions"):
+		$Effects/PromotionPopups.launch(json["promotions"])
+
 	if json.has("events"):
 		for event in json["events"]:
 			$EventBoard.push_event(event)

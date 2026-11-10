@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="FontVariation" path="res://tutorial_font.tres" id="1"]
+[ext_resource type="PackedScene" path="res://LeagueIcon.tscn" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="PromotionStyle"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 22.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0705882, 0.0784314, 0.0862745, 0.85098)
+border_width_left = 5
+border_color = Color(0.94902, 0.756863, 0.25098, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PromotionPopup" type="PanelContainer"]
+offset_right = 400.0
+offset_bottom = 68.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("PromotionStyle")
+
+[node name="Box" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="Control" parent="Box"]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeagueIcon" parent="Box/Icon" instance=ExtResource("2")]
+offset_right = 105.0
+offset_bottom = 105.0
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Box"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "player_name"
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Box"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.94902, 0.756863, 0.25098, 1)
+text = "promoted to Gold League"
+vertical_alignment = 1

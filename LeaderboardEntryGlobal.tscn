@@ -89,6 +89,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Delta" type="Label" parent="HBoxContainer/PlayerNameBar"]
+visible = false
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.35, 0.9, 0.35, 1)
+text = "+15"
+
 [node name="Badges" type="HBoxContainer" parent="HBoxContainer"]
 offset_left = 532.0
 offset_right = 624.0
