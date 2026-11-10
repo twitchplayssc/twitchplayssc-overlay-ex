@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" path="res://icons/terran/research/btn-upgrade-terran-researchdrillingclaws.dds" id="45"]
 [ext_resource type="PackedScene" path="res://TechIcon.tscn" id="46"]
 [ext_resource type="FontVariation" path="res://timer_font.tres" id="47"]
+[ext_resource type="Texture2D" path="res://icons/terran/research/btn-upgrade-terran-magfieldaccelerator.dds" id="48"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0, 0, 0, 1)
@@ -379,13 +380,14 @@ offset_right = 304.0
 offset_bottom = 380.0
 icon_texture = ExtResource("44")
 
-[node name="placeholder-3" parent="GCC/GridContainer" instance=ExtResource("46")]
+[node name="magfield" parent="GCC/GridContainer" instance=ExtResource("46")]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 304.0
 offset_top = 304.0
 offset_right = 380.0
 offset_bottom = 380.0
+icon_texture = ExtResource("48")
 
 [node name="placeholder-4" parent="GCC/GridContainer" instance=ExtResource("46")]
 anchor_right = 0.0
