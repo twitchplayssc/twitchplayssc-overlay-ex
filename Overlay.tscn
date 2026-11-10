@@ -62,6 +62,15 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.819608, 0.776471, 1, 1)
 
+[sub_resource type="Gradient" id="IntroRuleGradient"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="IntroRuleTexture"]
+gradient = SubResource("IntroRuleGradient")
+width = 256
+height = 4
+
 [sub_resource type="StyleBoxFlat" id="TutorialStyle"]
 content_margin_left = 16.0
 content_margin_top = 8.0
@@ -846,7 +855,7 @@ theme_override_fonts/font = SubResource("11")
 theme_override_font_sizes/font_size = 26
 theme_override_constants/outline_size = 1
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.466667)
-text = "Your opponent is"
+text = "Next game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -862,7 +871,7 @@ theme_override_fonts/font = SubResource("12")
 theme_override_font_sizes/font_size = 56
 theme_override_constants/outline_size = 1
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.466667)
-text = "naturalhomemadenutella"
+text = "Ranked 1v1 Melee"
 horizontal_alignment = 1
 vertical_alignment = 1
 __meta__ = {
@@ -878,12 +887,22 @@ theme_override_fonts/font = SubResource("13")
 theme_override_font_sizes/font_size = 24
 theme_override_constants/outline_size = 1
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.466667)
-text = "Win the game to progress to higher difficulty"
+text = "Win the game to progress to a higher League"
 horizontal_alignment = 1
 vertical_alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Rule" type="TextureRect" parent="GameStats/GameIntro/Container"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 157.0
+offset_right = 320.0
+offset_bottom = 160.0
+texture = SubResource("IntroRuleTexture")
+expand_mode = 1
 
 [node name="Tip" type="RichTextLabel" parent="GameStats/GameIntro/Container"]
 anchor_right = 1.0

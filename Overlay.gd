@@ -99,7 +99,7 @@ func incoming_message(pkt):
 		$GameStats.update_state(json["stats"])
 	
 	if json.has("gameIntro"):
-		$GameStats/GameIntro.update_state(json["gameIntro"])
+		$GameStats/GameIntro.update_state(json["gameIntro"], current_race)
 		$CutscenePlayer.stop()
 		$CutscenePlayer.hide()
 		
