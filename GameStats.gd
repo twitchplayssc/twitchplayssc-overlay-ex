@@ -24,9 +24,24 @@ func update_pstats(json):
 	
 	
 func reset_timer():
-	timer_seconds=0
-	timer_minutes=0
-	timer_hours=0
+	set_timer(0, false)
+
+# The bot keeps the game's time: this counter only fills the seconds between its messages, and
+# stops while the bot has the game paused.
+func set_timer(total, paused):
+	total = max(total, 0)
+	timer_hours = total / 3600
+	timer_minutes = (total / 60) % 60
+	timer_seconds = total % 60
+	show_timer()
+	if paused:
+		$SecondCounter.stop()
+	else:
+		$SecondCounter.start()
+
+func show_timer():
+	if get_parent().has_node("TechPanel/Timer"):
+		get_parent().get_node("TechPanel/Timer").text = str(timer_hours)+":"+str(timer_minutes+100).right(2)+":"+str(timer_seconds+100).right(2)
 
 func _on_Second():
 	timer_seconds+=1
@@ -42,6 +57,5 @@ func _on_Second():
 		if timer_minutes<0:
 			timer_minutes=0
 			timer_hours-=1
-	if get_parent().has_node("TechPanel/Timer"):
-		get_parent().get_node("TechPanel/Timer").text = str(timer_hours)+":"+str(timer_minutes+100).right(2)+":"+str(timer_seconds+100).right(2)
+	show_timer()
 	

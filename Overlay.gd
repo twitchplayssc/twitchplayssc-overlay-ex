@@ -83,6 +83,8 @@ func incoming_message(pkt):
 					add_child(TechPanel_Mixed.instantiate())
 					move_child($TechPanel,0)
 					reset_tech()
+			# A tech panel just put in shows its own placeholder until the clock is drawn on it.
+			$GameStats.show_timer()
 			enable_overlay()
 		else:
 			compact_state = false			
@@ -95,6 +97,11 @@ func incoming_message(pkt):
 			$Leaderboards.show()
 			$Tutorial.deactivate()	
 			
+	# After the mode, whose start of a game resets the clock, so that the bot's time is the one kept.
+	if json.has("timer"):
+		var timer = json["timer"]
+		$GameStats.set_timer(int(timer["now"]), timer.get("paused", "false") == "true")
+
 	if json.has("stats"):
 		$GameStats.update_state(json["stats"])
 	
